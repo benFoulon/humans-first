@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SpontaneousCandidacy{% endblock %}
+
+{% block body %}
+    <h1>Edit SpontaneousCandidacy</h1>
+
+    {{ include('spontaneous_candidacy/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('spontaneous_candidacy_index') }}">back to list</a>
+
+    {{ include('spontaneous_candidacy/_delete_form.html.twig') }}
+{% endblock %}

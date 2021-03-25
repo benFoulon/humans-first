@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offer index{% endblock %}
+
+{% block body %}
+    <h1>Offer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Publication_date</th>
+                <th>Reference</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Profile</th>
+                <th>Location</th>
+                <th>VacantPosition</th>
+                <th>Experience</th>
+                <th>Status</th>
+                <th>DateStart</th>
+                <th>ContractType</th>
+                <th>WeeklyWorkTime</th>
+                <th>Remuneration</th>
+                <th>Further_information</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offer in offers %}
+            <tr>
+                <td>{{ offer.id }}</td>
+                <td>{{ offer.publicationDate ? offer.publicationDate|date('Y-m-d') : '' }}</td>
+                <td>{{ offer.reference }}</td>
+                <td>{{ offer.title }}</td>
+                <td>{{ offer.description }}</td>
+                <td>{{ offer.profile }}</td>
+                <td>{{ offer.location }}</td>
+                <td>{{ offer.vacantPosition }}</td>
+                <td>{{ offer.experience }}</td>
+                <td>{{ offer.status }}</td>
+                <td>{{ offer.dateStart }}</td>
+                <td>{{ offer.contractType }}</td>
+                <td>{{ offer.weeklyWorkTime }}</td>
+                <td>{{ offer.remuneration }}</td>
+                <td>{{ offer.furtherInformation }}</td>
+                <td>
+                    <a href="{{ path('offer_show', {'id': offer.id}) }}">show</a>
+                    <a href="{{ path('offer_edit', {'id': offer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offer_new') }}">Create new</a>
+{% endblock %}

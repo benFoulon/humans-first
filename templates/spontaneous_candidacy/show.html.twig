@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SpontaneousCandidacy{% endblock %}
+
+{% block body %}
+    <h1>SpontaneousCandidacy</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ spontaneous_candidacy.id }}</td>
+            </tr>
+            <tr>
+                <th>Fisrtname</th>
+                <td>{{ spontaneous_candidacy.fisrtname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ spontaneous_candidacy.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ spontaneous_candidacy.mail }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ spontaneous_candidacy.phone }}</td>
+            </tr>
+            <tr>
+                <th>Town</th>
+                <td>{{ spontaneous_candidacy.town }}</td>
+            </tr>
+            <tr>
+                <th>HighestQualification</th>
+                <td>{{ spontaneous_candidacy.highestQualification }}</td>
+            </tr>
+            <tr>
+                <th>ActivityDomain</th>
+                <td>{{ spontaneous_candidacy.activityDomain }}</td>
+            </tr>
+            <tr>
+                <th>Cv</th>
+                <td>{{ spontaneous_candidacy.cv }}</td>
+            </tr>
+            <tr>
+                <th>MotivationLetter</th>
+                <td>{{ spontaneous_candidacy.motivationLetter }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('spontaneous_candidacy_index') }}">back to list</a>
+
+    <a href="{{ path('spontaneous_candidacy_edit', {'id': spontaneous_candidacy.id}) }}">edit</a>
+
+    {{ include('spontaneous_candidacy/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BusinessController!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="flex__business--recrutement">
+        <div class="flex__business--pic-one"></div>
+        
+        <div class="flex__recrutement--content">
+            <div class="business--title">
+                <img class="icon_png" src="{{ asset('build/target.png') }}" width="50" height="50">
+                <h3>Recrutement</h3>
+            </div>
+            <p class="paragraph">HUMANS FIRST facilite vos recrutements sur des fonctions transverses et stratégiques sur l’ensemble du territoire : </p>
+        - Co-définition des besoins avec nos clients et ciblage de profils sur tous types de fonctions (de niveau technicien à cadre dirigeant)
+        - Gestion de l'ensemble du processus de recrutement (de l'approche directe à l'intégration).<br>
+        Nous bénéficions d’une expertise reconnue dans les domaines agro-alimentaire, pharmaceutique, chimie, recherche et développement, industrie, ingénierie, maintenance… <br>
+        Nous vous proposons une offre sur mesure pour répondre à vos problématiques de recrutement. <br></p>
+        </div>
+    </div>
+
+        
+        
+    <div>
+        <h3>Notre process de recrutement adaptable selon vos besoins</h3>
+        <div class="process--recrutement">
+            <div class="process--content">
+                <p class="square--process"> Rédaction du cahier des charges</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Élaboration de la stratégie et rétroplanning</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Approche directe, activation de nos réseaux.</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Qualification et présélection téléphonique</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Entretien avec le consultant, définition d’une shortlist</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Entretiens avec le client</p>
+                <i class="fas fa-arrow-right fa-2x"></i>
+            </div>
+            <div class="process--content">
+                <p class="square--process"> Suivi de bonne intégration</p> 
+            </div>
+        </div>
+    </div>
+
+    <div class="flex__business--expert">
+        <div class="flex__business--pic-two"></div>
+
+        <div class="flex__expert--content">
+            <div class="business--title">
+                <img class="icon_png" src="{{ asset('build/rating.svg') }}" width="50" height="50">
+                <h3>Expertise RH</h3>
+            </div>
+            <p class="paragraph">HUMANS FIRST facilite vos recrutements sur des fonctions transverses et stratégiques sur l’ensemble du territoire : <br>
+            - Co-définition des besoins avec nos clients et ciblage de profils sur tous types de fonctions (de niveau technicien à cadre dirigeant)
+            - Gestion de l'ensemble du processus de recrutement (de l'approche directe à l'intégration).<br>
+            Nous bénéficions d’une expertise reconnue dans les domaines agro-alimentaire, pharmaceutique, chimie, recherche et développement, industrie, ingénierie, maintenance… <br>
+            Nous vous proposons une offre sur mesure pour répondre à vos problématiques de recrutement. <br></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

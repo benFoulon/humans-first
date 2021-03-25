@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SpontaneousCandidacy index{% endblock %}
+
+{% block body %}
+    <h1>SpontaneousCandidacy index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fisrtname</th>
+                <th>Lastname</th>
+                <th>Mail</th>
+                <th>Phone</th>
+                <th>Town</th>
+                <th>HighestQualification</th>
+                <th>ActivityDomain</th>
+                <th>Cv</th>
+                <th>MotivationLetter</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for spontaneous_candidacy in spontaneous_candidacies %}
+            <tr>
+                <td>{{ spontaneous_candidacy.id }}</td>
+                <td>{{ spontaneous_candidacy.fisrtname }}</td>
+                <td>{{ spontaneous_candidacy.lastname }}</td>
+                <td>{{ spontaneous_candidacy.mail }}</td>
+                <td>{{ spontaneous_candidacy.phone }}</td>
+                <td>{{ spontaneous_candidacy.town }}</td>
+                <td>{{ spontaneous_candidacy.highestQualification }}</td>
+                <td>{{ spontaneous_candidacy.activityDomain }}</td>
+                <td>{{ spontaneous_candidacy.cv }}</td>
+                <td>{{ spontaneous_candidacy.motivationLetter }}</td>
+                <td>
+                    <a href="{{ path('spontaneous_candidacy_show', {'id': spontaneous_candidacy.id}) }}">show</a>
+                    <a href="{{ path('spontaneous_candidacy_edit', {'id': spontaneous_candidacy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('spontaneous_candidacy_new') }}">Create new</a>
+{% endblock %}

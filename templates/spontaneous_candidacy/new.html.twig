@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SpontaneousCandidacy{% endblock %}
+
+{% block body %}
+    <h1>Create new SpontaneousCandidacy</h1>
+
+    {{ include('spontaneous_candidacy/_form.html.twig') }}
+
+    <a href="{{ path('spontaneous_candidacy_index') }}">back to list</a>
+{% endblock %}

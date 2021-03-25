@@ -1,0 +1,482 @@
+/* base */
+/*  
+    font-family: 'EB Garamond', serif;
+    font-family: 'PT Sans', sans-serif; 
+*/
+:root{
+    --background : #F5F0E8;
+    --dark-blue : #2F4F4F;
+    --light-blue : #9FBBBB;
+    --dark: #343434;
+    --light: #ffffff;
+    --broke-white: rgba(255, 255, 255, 0.5);
+}
+body {
+    background-color: var(--background) !important;
+}
+.header{
+    background-color: white;
+}
+.hf_logo{
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+h2, h3{
+    text-align: center;
+    color: var(--dark-blue);
+    font-family: 'PT Sans', sans-serif;
+}
+.navbar{
+    background-color: white;
+}
+.navbar-collapse{
+    justify-content: center;
+}
+.paragraph{
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+a:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+}
+.hf_pic{
+    background: url("../img/rh_pic.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 250px;
+}
+.intro{
+    margin: 1rem auto;
+    text-align: center;
+}
+.quote{
+    font-family: Dancing Script;
+    font-style: normal;    
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+.filigrane_text{
+    position: relative;
+    top: 123px;
+    left: 65px;;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* footer */
+footer{
+    background-color: var(--dark);
+    color: var(--light);
+    padding-left: 5%;
+    font-size: 1rem;
+}
+.footer__presentation{
+    max-width: 11rem;
+}
+.title--footer{
+    color: var(--light-blue);
+}
+.footer__content{
+    font-size: 0.8rem;
+}
+footer a{
+    text-decoration: none;
+    color: var(--light);
+}
+footer ul{
+    margin-bottom: 0;
+}
+.footer__link--nav{
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+.footer__link--nav>li{
+    margin-right: 5px;
+    font-size: 0.7rem;
+}
+
+/* 
+----------------------------------------------------------------------------------------------
+                                        home page 
+----------------------------------------------------------------------------------------------
+*/
+
+/* service section */
+.service{
+    text-align: center;
+    background-color: var(--broke-white);
+    padding: 3%;
+    width: 90% !important;
+    margin: 3% auto;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.title--service{
+    margin-bottom: 1.5rem;
+}
+.service_recrutement, .service_expertise, .service_accompagnement{
+        margin: 3rem 0;
+        max-width: 18rem;
+    }
+.service a{
+    text-decoration: none;
+    background-color: var(--dark-blue);
+    padding: 2%;
+    border-radius: 20px;
+    color: var(--light);
+}
+
+/* emploi section */
+.card{
+    border: 1px solid black;
+    width: 11rem;
+    max-width: 11rem;
+    text-align: center;
+    height: 15rem;
+    border-radius: 20px !important;
+    flex: 0 0 auto;
+    margin: 1rem;
+}
+.card-header{
+    background-color: var(--dark) !important;
+    color: var(--light);
+    border-radius: 20px 20px 0 0 !important;
+}
+.card-text{
+    text-align: left;
+}
+.card-btn{
+    font-size: 0.9rem !important;
+    background-color: var(--light-blue) !important;
+    color: var(--light) !important;
+    border-radius: 20px !important;
+}
+.offer--title{
+    margin-bottom: 0.2rem;
+}
+.emploi_horizontal_scroll{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.all__offer--link{
+    display: block;
+    text-decoration: none;
+    background-color: var(--dark-blue);
+    color: var(--light);
+    padding: 0.25rem;
+    border-radius: 20px;
+    margin: 0.7rem auto;
+    text-align: center;
+    width: 45%;
+}
+/* contact section */
+.contact{
+    width: 80%;
+    margin: 0.5rem auto;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 3%;
+    color: var(--dark-blue);
+    background-color: var(--broke-white);
+}
+.contact--button{
+    text-decoration: none;
+    background-color: var(--dark-blue);
+    padding: 2%;
+    border-radius: 20px;
+    color: var(--light);
+}
+.contact--button:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+    color: var(--light);
+}
+
+
+/* 
+----------------------------------------------------------------------------------------------
+                                        About page 
+----------------------------------------------------------------------------------------------
+*/
+.background__about{
+    background: url("../img/RhRandomPic.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 220px;
+}
+.paragraph--about{
+    text-align: center;
+}
+.business--presentation a, .candidate--presentation a{
+    text-decoration: none;
+    background-color: var(--dark-blue);
+    padding: 2%;
+    border-radius: 20px;
+    color: var(--light);
+    margin-top: 1rem;
+    text-align: center;
+}
+.candidate--presentation{
+    margin-top: 2rem;
+}
+.icon--target, .icon--rating{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: 0 auto;
+}
+.business--icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icon--handshake{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: 0 auto;
+}
+.icon_png{
+    margin: 0 auto;
+    display: flex;
+}
+.value--list{
+    margin: 0 auto;
+}
+.presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid ;
+    border-color: lightgrey;
+    border-radius: 30px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.presentation--picture {
+    max-width: 100px;
+    border-radius: 50%;
+    margin: 1rem auto;
+}
+.presentation--title{
+    margin-bottom: 0px;
+}
+.presentation--role{
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+.presentation--paragraph {
+    text-align: center;
+}
+/* 
+----------------------------------------------------------------------------------------------
+                                        Business page 
+----------------------------------------------------------------------------------------------
+*/
+.square--process{
+    background-color: var(--light-blue);
+    width: 8rem;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 20px;
+}
+.process--recrutement{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.process--content{
+    display: flex;
+    flex: 0 0 auto;
+}
+.fa-arrow-right{
+    color: var(--dark-blue);
+    margin: auto 1rem;
+}
+
+/* 
+----------------------------------------------------------------------------------------------
+                                        Media queries 
+----------------------------------------------------------------------------------------------
+*/
+
+@media screen and (min-width: 700px){
+    .filigrane_text{
+        top: 110px;
+        left: 220px;
+    }
+    .flex--footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    }
+    @media screen and (min-width: 780px){
+        .emploi_horizontal_scroll{
+        justify-content: center;
+    }
+    } 
+    @media screen and (min-width : 800px){
+        .dekstop__vue--service{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .flex--service{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .candidate{
+            margin-bottom: 0;
+            margin: auto 0;
+        }
+        .business{
+            border-right: 1px solid black;
+        }
+        .all__offer--link{
+            width: 25%;
+        }
+        .presentation{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+        .presentation--right{
+            width: 45%;
+            border-left: 1px solid black;
+            padding-left: 1rem;
+        }
+        .presentation--left{
+            width: 45%;
+            align-self: center;
+        }
+        .presentation--picture{
+            display: block;
+        }
+    }
+    @media screen and (min-width: 850px){
+        .hf_pic{
+            height: 300px;
+        }
+        .filigrane_text{
+            top: 200px;
+            left: 265px;
+        }
+        .contact{
+            margin-top: 2rem ;
+            width: 60%;
+        }
+        .value--list{
+            padding-left: 6rem;
+        }
+        .background__about{
+            height: 300px;
+        }
+    }
+    @media screen and (min-width: 1000px){
+        .filigrane_text{
+            top: 155px;
+            left: 370px;
+            font-size: 22px;
+        }
+        .value--list{
+            padding-left: 8rem;
+        }
+        .flex--about{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 3rem;
+        }
+        .business--presentation{
+            width: 45%;
+        }
+        .candidate--presentation{
+            width: 45%;
+            margin-top: 0;
+        }
+        .flex__business--recrutement{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 3rem;
+        }
+        .flex__recrutement--content{
+            width: 65%;
+            margin-left: 2rem;
+        }
+        .flex__business--expert{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            margin-top: 3rem;
+        }
+        .flex__expert--content{
+            width: 65%;
+            margin-right: 2rem;
+        }
+        .flex__business--pic-one{
+            width: 435px;
+            height: 355px;
+            border-radius: 20px;
+            background: url('../img/recrutement__pic.png');
+        }
+        .flex__business--pic-two{
+            width: 435px;
+            height: 355px;
+            border-radius: 20px;
+            background: url('../img/expertisepic.jpg');
+            background-size: cover;
+        }
+
+        .flex__candidate{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 3rem;
+        }
+        .flex__candidate--content{
+            width: 65%;
+            margin-left: 2rem;
+        }
+        .flex__candidate--pic{
+            width: 435px;
+            height: 355px;
+            border-radius: 20px;
+            background: url('../img/photo-accompagnement.jpg');
+            background-size: cover;
+        }
+    }
+    @media screen and (min-width: 1200px){
+    .business{
+        padding-right: 5rem;
+    }
+    .candidate{
+        position: relative;
+        right: 60px;
+    }
+    }
+    @media screen and (min-width: 1400px){
+        .filigrane_text{
+            top: 155px;
+            left: 340px;
+            font-size: 22px;
+        }
+    }   
