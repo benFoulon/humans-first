@@ -357,6 +357,7 @@ footer ul{
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
+            max-width: 60%;
         }
         .presentation--right{
             width: 45%;
@@ -381,7 +382,7 @@ footer ul{
         }
         .contact{
             margin-top: 2rem ;
-            width: 60%;
+            max-width: 30%;
         }
         .value--list{
             padding-left: 6rem;
