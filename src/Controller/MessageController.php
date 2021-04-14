@@ -26,7 +26,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="message_new", methods={"GET","POST"})
+     * @Route("/contact", name="message_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

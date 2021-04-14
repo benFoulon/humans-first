@@ -90,14 +90,15 @@ class Offer
     private $further_information;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Candidate::class, mappedBy="candidacy")
+     * @ORM\ManyToMany(targetEntity=Candidate::class, inversedBy="offers")
      */
-    private $candidates;
+    private $candidacy;
 
     public function __construct()
     {
-        $this->candidates = new ArrayCollection();
+        $this->candidacy = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -275,26 +276,23 @@ class Offer
     /**
      * @return Collection|Candidate[]
      */
-    public function getCandidates(): Collection
+    public function getCandidacy(): Collection
     {
-        return $this->candidates;
+        return $this->candidacy;
     }
 
-    public function addCandidate(Candidate $candidate): self
+    public function addCandidacy(Candidate $candidacy): self
     {
-        if (!$this->candidates->contains($candidate)) {
-            $this->candidates[] = $candidate;
-            $candidate->addCandidacy($this);
+        if (!$this->candidacy->contains($candidacy)) {
+            $this->candidacy[] = $candidacy;
         }
 
         return $this;
     }
 
-    public function removeCandidate(Candidate $candidate): self
+    public function removeCandidacy(Candidate $candidacy): self
     {
-        if ($this->candidates->removeElement($candidate)) {
-            $candidate->removeCandidacy($this);
-        }
+        $this->candidacy->removeElement($candidacy);
 
         return $this;
     }

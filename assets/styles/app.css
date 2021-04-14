@@ -42,6 +42,10 @@ a:hover{
     text-decoration: none;
     transform: scale(1.1);
 }
+.service > a:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+}
 .hf_pic{
     background: url("../img/rh_pic.jpg") no-repeat center center;
     background-size: cover;
@@ -100,6 +104,10 @@ footer ul{
     margin-right: 5px;
     font-size: 0.7rem;
 }
+.message--button{
+    background-color: var(--dark-blue) !important;
+    padding: 20px;
+}
 
 /* 
 ----------------------------------------------------------------------------------------------
@@ -121,7 +129,7 @@ footer ul{
     margin-bottom: 1.5rem;
 }
 .service_recrutement, .service_expertise, .service_accompagnement{
-        margin: 3rem 0;
+        margin: 3rem auto;
         max-width: 18rem;
     }
 .service a{
@@ -185,7 +193,7 @@ footer ul{
     font-weight: 700;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    padding: 3%;
+    padding: 2%;
     color: var(--dark-blue);
     background-color: var(--broke-white);
 }
@@ -253,6 +261,8 @@ footer ul{
 }
 .value--list{
     margin: 0 auto;
+    width: 42%;
+    padding: 0;
 }
 .presentation {
     display: flex;
@@ -268,9 +278,11 @@ footer ul{
 }
 
 .presentation--picture {
-    max-width: 100px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     margin: 1rem auto;
+    display: block;
 }
 .presentation--title{
     margin-bottom: 0px;
@@ -307,6 +319,21 @@ footer ul{
 .fa-arrow-right{
     color: var(--dark-blue);
     margin: auto 1rem;
+}
+
+/* 
+----------------------------------------------------------------------------------------------
+                                        Offer page 
+----------------------------------------------------------------------------------------------
+*/
+.offer--show{
+    width: 60%;
+    margin: 1rem auto;
+}
+.offer--element{
+    text-align: left;
+    color: var(--dark-blue);
+    font-family: 'PT Sans', sans-serif;
 }
 
 /* 
@@ -382,23 +409,19 @@ footer ul{
         }
         .contact{
             margin-top: 2rem ;
-            max-width: 30%;
-        }
-        .value--list{
-            padding-left: 6rem;
         }
         .background__about{
             height: 300px;
         }
     }
     @media screen and (min-width: 1000px){
+        .contact{
+            max-width: 30%;
+        }
         .filigrane_text{
             top: 155px;
             left: 370px;
             font-size: 22px;
-        }
-        .value--list{
-            padding-left: 8rem;
         }
         .flex--about{
             display: flex;

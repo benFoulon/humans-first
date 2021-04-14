@@ -6,6 +6,7 @@ use App\Entity\Candidate;
 use App\Entity\Offer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,14 +20,7 @@ class CandidateType extends AbstractType
             ->add('mail')
             ->add('phone')
             ->add('town')
-            ->add('cv')
-            ->add('candidacy', EntityType::class, [
-                // looks for choices from this entity
-                'class' => Offer::class,
-                'multiple' => true,
-                'expanded' => true,
-            ]
-            )
+            ->add('cv', FileType::class)
         ;
     }
 

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Toutes nos offres d'emplois</h2>
+
+{% for offer in offers %}
+    <div class="offer container">
+        <h4> <a href=" {{ path('offer_show', {'id': offer.id}) }} ">{{ offer.title }}</a></h4>
+        {{ offer.description }}
+        <p class="metadata"> {{ offer.publicationDate | date('d/m/Y') }} </p>
+        <hr>
+    </div>
+{% endfor %}
+
+{% endblock %}

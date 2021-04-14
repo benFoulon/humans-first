@@ -35,9 +35,9 @@ class Comment
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comment")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="newComment")
      */
-    private $article;
+    private $articles;
 
     public function __construct()
     {
@@ -85,15 +85,34 @@ class Comment
         return $this;
     }
 
-    public function getArticle(): ?Article
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
     {
-        return $this->article;
+        return $this->articles;
     }
 
-    public function setArticle(?Article $article): self
+    public function addArticle(Article $article): self
     {
-        $this->article = $article;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setNewComment($this);
+        }
 
         return $this;
     }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getNewComment() === $this) {
+                $article->setNewComment(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

@@ -22,12 +22,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" href="/">Acceuil</a>
-                        <a class="nav-link" href="/presentation">Présentation</a>
-                        <a class="nav-link" href="/entreprise">Entreprises</a>
-                        <a class="nav-link" href="/candidat">Candidats</a>
-                        <a class="nav-link" href="#">Offres d'emploi</a>
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'home' %}active{% endif %}" href="/">Acceuil</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}" href="/presentation">Présentation</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'business' %}active{% endif %}" href="/entreprise">Entreprises</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'personn' %}active{% endif %}" href="/candidat">Candidats</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'offers' %}active{% endif %}" href="/offres">Offres d'emploi</a>
+                        <a class="nav-link" href="{{ path("message_new") }}">Contact</a>
                     </div>
                 </div>
             </nav>

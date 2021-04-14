@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Offer;
-use App\Entity\Candidate;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,14 +26,7 @@ class OfferType extends AbstractType
             ->add('contractType')
             ->add('weeklyWorkTime')
             ->add('remuneration')
-            ->add('further_information')
-            ->add('candidates', EntityType::class, [
-                // looks for choices from this entity
-                'class' => Candidate::class,
-                'multiple' => true,
-                'expanded' => true,
-            ])
-        ;
+            ->add('further_information');
     }
 
     public function configureOptions(OptionsResolver $resolver)

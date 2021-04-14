@@ -45,14 +45,10 @@ class Article
     private $udpdatedDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article")
+     * @ORM\ManyToOne(targetEntity=Comment::class, inversedBy="articles")
      */
-    private $comment;
+    private $newComment;
 
-    public function __construct()
-    {
-        $this->comment = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -119,32 +115,14 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Comment[]
-     */
-    public function getComment(): Collection
+    public function getNewComment(): ?Comment
     {
-        return $this->comment;
+        return $this->newComment;
     }
 
-    public function addComment(Comment $comment): self
+    public function setNewComment(?Comment $newComment): self
     {
-        if (!$this->comment->contains($comment)) {
-            $this->comment[] = $comment;
-            $comment->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comment->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getArticle() === $this) {
-                $comment->setArticle(null);
-            }
-        }
+        $this->newComment = $newComment;
 
         return $this;
     }

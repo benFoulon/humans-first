@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h2> {{ offer.title }} </h2>
+    <div class="Container offer--show">
+        <div>
+            <h3>Date de publication</h3>
+            <p>{{ offer.publicationDate ? offer.publicationDate|date('d / m / Y') : '' }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Réfèrence</h3>
+            <p>{{ offer.reference }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Intitulé du poste</h3>
+            <p>{{ offer.title }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Description</h3>
+            <p>{{ offer.description }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Profil recherché</h3>
+            <p>{{ offer.profile }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Localisation</h3>
+            <p>{{ offer.location }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Poste à pourvoir</h3>
+            <p>{{ offer.vacantPosition }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Expérience</h3>
+            <p>{{ offer.experience }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Statut</h3>
+            <p>{{ offer.status }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Date de démarage</h3>
+            <p>{{ offer.dateStart }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Type de contrat</h3>
+            <p>{{ offer.contractType }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Temps de travail hebdomadaire</h3>
+            <p>{{ offer.weeklyWorkTime }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Rémuneration</h3>
+            <p>{{ offer.remuneration }}</p>
+        </div>
+        <div>
+            <h3 class="offer--element">Information complémentaires</h3>
+            <p>{{ offer.furtherInformation }}</p>
+        </div>
+    </div>
+{% endblock %}
+
