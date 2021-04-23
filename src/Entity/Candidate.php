@@ -6,9 +6,12 @@ use App\Repository\CandidateRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CandidateRepository::class)
+ * @Vich\Uploadable
  */
 class Candidate
 {
@@ -45,9 +48,15 @@ class Candidate
     private $town;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
-    private $cv;
+    private $fileName;
+
+    /**
+     * @Vich\UploadableField(mapping="cv_candidacy", fileNameProperty="fileName")
+     * @var File|null
+     */
+    private $cvFile;
 
     /**
      * @ORM\ManyToMany(targetEntity=Offer::class, mappedBy="candidacy")
@@ -125,18 +134,6 @@ class Candidate
         return $this;
     }
 
-    public function getCv()
-    {
-        return $this->cv;
-    }
-
-    public function setCv($cv): self
-    {
-        $this->cv = $cv;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Offer[]
      */
@@ -162,5 +159,33 @@ class Candidate
         }
 
         return $this;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    public function setFileName(string $fileName): self
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+    
+    public function setCvFile(?File $fileName = null): void
+    {
+        $this->cvFile = $fileName;
+
+        if (null !== $fileName) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getCvFile(): ?File
+    {
+        return $this->cvFile;
     }
 }

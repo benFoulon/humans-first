@@ -92,14 +92,7 @@ class PrivatePageAuthnticatorAuthenticator extends AbstractFormLoginAuthenticato
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
-        $user = $token -> getUser();
-
-        $roleNames = $token -> getRoleNames();
-
-        if (in_array('ROLE_ADMIN', $roleNames)) {
-            // redirection vers la pages d'administration
-            return new RedirectResponse($this->urlGenerator->generate('admin'));
-        }
+        return new RedirectResponse($this->urlGenerator->generate('admin'));
     }
 
     protected function getLoginUrl()

@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class CandidateType extends AbstractType
 {
@@ -20,7 +21,13 @@ class CandidateType extends AbstractType
             ->add('mail')
             ->add('phone')
             ->add('town')
-            ->add('cv', FileType::class)
+            -> add ( 'cvFile' , VichFileType :: class, [
+                'required' => true ,
+                'allow_delete' => false ,
+                'download_uri' => true ,
+                'download_label' => 'download_file',
+                // ' asset_helper ' => true ,
+            ]);
         ;
     }
 
@@ -28,6 +35,7 @@ class CandidateType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Candidate::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }

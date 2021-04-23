@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Offer;
+use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,8 +13,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(OfferRepository $repository): Response
     {
+        // $offer = $repository->findLatest();
         return $this->render('pages/home/index.html.twig', [
             'controller_name' => 'HomeController',
             'current_menu' => 'home'
@@ -63,6 +65,22 @@ class HomeController extends AbstractController
             'current_menu' => 'offers',
             'offers' => $offers 
         ]);
+    }
+
+    /**
+     * @Route("/message-envoyé", name="message_success")
+     */
+    public function messageSend(): Response
+    {
+        return $this->render('pages/success_redirection/success_message.html.twig');
+    }
+
+    /**
+     * @Route("/candidature-envoyé", name="candidacy_success")
+     */
+    public function candidacySend(): Response
+    {
+        return $this->render('pages/success_redirection/success_candidacy.html.twig');
     }
 }
 

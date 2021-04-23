@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container search__logo"><i class="fas fa-search"></i></div>
 <h2>Toutes nos offres d'emplois</h2>
+
+<div class="container spontaneous__candidacy">
+    <p class="spontaneous__candidacy--text">Vous souhaitez deposer une canditature spontanée ? </p>
+    <a class="contact--button" href=""> C'est par ici !</a>
+</div>
 
 {% for offer in offers %}
     <div class="offer container">
-        <h4> <a href=" {{ path('offer_show', {'id': offer.id}) }} ">{{ offer.title }}</a></h4>
+        <h4> <a class="offer__link--show" href=" {{ path('offer_show', {'id': offer.id}) }} ">{{ offer.title }}</a></h4>
         {{ offer.description }}
         <p class="metadata"> {{ offer.publicationDate | date('d/m/Y') }} </p>
         <hr>

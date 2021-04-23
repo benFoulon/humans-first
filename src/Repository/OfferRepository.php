@@ -20,6 +20,18 @@ class OfferRepository extends ServiceEntityRepository
     }
 
     // /**
+    //  * @return Offer[] 
+    //  * Returns an array of Offer objects
+    //  */
+    // public function findLatest(): array
+    // {
+    //     return $this->createQueryBuilder('o')
+    //         ->setMaxResults(3)
+    //         ->setQuery()
+    // }
+
+
+    // /**
     //  * @return Offer[] Returns an array of Offer objects
     //  */
     /*

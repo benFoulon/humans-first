@@ -41,6 +41,7 @@ h2, h3{
 a:hover{
     text-decoration: none;
     transform: scale(1.1);
+    color: white;
 }
 .service > a:hover{
     text-decoration: none;
@@ -69,6 +70,10 @@ a:hover{
     text-align: center;
     font-family: 'Courgette', cursive;
     color: rgba(255, 255, 255, 0.5);
+}
+.container--form{
+    width: 70%;
+    margin: 0 auto;
 }
 
 /* footer */
@@ -104,11 +109,25 @@ footer ul{
     margin-right: 5px;
     font-size: 0.7rem;
 }
-.message--button{
-    background-color: var(--dark-blue) !important;
-    padding: 20px;
+.form--button{
+    position: relative;
+    background: #2F4F4F;
+    border: 0;
+    padding: 14px 42px;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(#000,.2);
+    display: block;
+    margin: 0 auto;
+    width: 40%;
 }
 
+ 
 /* 
 ----------------------------------------------------------------------------------------------
                                         home page 
@@ -203,6 +222,7 @@ footer ul{
     padding: 2%;
     border-radius: 20px;
     color: var(--light);
+    font-weight: 600;
 }
 .contact--button:hover{
     text-decoration: none;
@@ -329,12 +349,94 @@ footer ul{
 .offer--show{
     width: 60%;
     margin: 1rem auto;
+    text-align: center;
 }
 .offer--element{
-    text-align: left;
     color: var(--dark-blue);
     font-family: 'PT Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-bottom: 0.1rem;
 }
+.offer--text{
+    font-size: 1.1rem;
+}
+.offer__link--show{
+    color: var(--dark-blue);
+}
+.offer__link--show:hover{
+    color: var(--dark-blue);
+    font-size: 1.55rem;
+}
+.metadata{
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+.success__box{
+    width: 60%;
+    margin: 2rem auto;
+}
+.spontaneous__candidacy{
+    background-color: #ffffff;
+    border-radius: 20px;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+    text-align: center;
+    width: 50% !important;
+    margin: 2rem auto;
+    padding: 1.5rem !important;
+}
+.spontaneous__candidacy--text{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.search__logo{
+    font-size: 3rem;
+    color: var(--dark-blue);
+    text-align: center;
+    margin-top: 2rem;
+}
+.candidate--button{
+    text-decoration: none;
+    background-color: var(--dark-blue);
+    padding: 0.6rem;
+    border-radius: 20px;
+    color: var(--light);
+    font-weight: 600;
+}
+.candidate--button:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+    color: var(--light);
+}
+.button__box--candidate{
+    margin: 2rem auto;
+}
+
+
+/* 
+----------------------------------------------------------------------------------------------
+                                        Login page 
+----------------------------------------------------------------------------------------------
+*/
+
+.login__page{
+    display: flex;
+}
+.login__page--background{
+    width: 50%;
+    height: 100vh;
+}
+.login__page--form{
+    width: 50%;
+    height: 100vh;
+}
+.login__form{
+    margin-top: 50%;
+    margin-left: 3rem;
+}
+
+
 
 /* 
 ----------------------------------------------------------------------------------------------
@@ -397,6 +499,9 @@ footer ul{
         }
         .presentation--picture{
             display: block;
+        }
+        .container--form{
+            width: 50%;
         }
     }
     @media screen and (min-width: 850px){
@@ -486,6 +591,9 @@ footer ul{
             border-radius: 20px;
             background: url('../img/photo-accompagnement.jpg');
             background-size: cover;
+        }
+        .container--form{
+            width: 35%;
         }
     }
     @media screen and (min-width: 1200px){
