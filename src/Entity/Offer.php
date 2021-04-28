@@ -94,6 +94,11 @@ class Offer
      */
     private $candidacy;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
+
     public function __construct()
     {
         $this->candidacy = new ArrayCollection();
@@ -293,6 +298,18 @@ class Offer
     public function removeCandidacy(Candidate $candidacy): self
     {
         $this->candidacy->removeElement($candidacy);
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
