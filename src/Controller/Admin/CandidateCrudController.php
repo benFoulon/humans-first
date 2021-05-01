@@ -28,9 +28,9 @@ class CandidateCrudController extends AbstractCrudController
             TextField::new('mail'),
             TextField::new('phone'),
             TextField::new('town'),
-            TextField::new('cvFile')->setFormType(VichFileType::class),
+            TextField::new('cvFile')->setFormType(VichFileType::class)->hideOnIndex(),
             ImageField::new('fileName')->onlyOnIndex()
         ];
     }
-    
+
 }

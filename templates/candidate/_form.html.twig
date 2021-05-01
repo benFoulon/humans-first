@@ -1,4 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="contact--button">{{ button_label|default('Postuler') }}</button>
+    <div class="button__box--candidate">
+        <button class="candidate--button">{{ button_label|default('Postuler') }}</button>
+    </div>
 {{ form_end(form) }}

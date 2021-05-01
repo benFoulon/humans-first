@@ -22,7 +22,7 @@ class OfferCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             DateField::new('publication_date'),
             TextField::new('reference'),
             TextField::new('title'),
@@ -30,14 +30,14 @@ class OfferCrudController extends AbstractCrudController
             TextEditorField::new('profile'),
             TextField::new('location'),
             IntegerField::new('vacant_position'),
-            TextEditorField::new('experience'),
             TextField::new('status'),
             TextField::new('date_start'),
             TextField::new('contract_type'),
             TextField::new('weekly_work_time'),
             TextField::new('remuneration'),
             TextField::new('further_information'),
-            BooleanField::new('isActive')
+            BooleanField::new('isActive'),
+            TextEditorField::new('excerpt')
         ];
     }
     

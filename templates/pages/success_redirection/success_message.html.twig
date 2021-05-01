@@ -2,8 +2,10 @@
 
 {% block body %}
 <div class="container success__box">
-    <p>Votre message a bien été envoyé.</p>
-    <p>Nos équipes reviendrons vers vous rapidement</p>
-    <a class="form--button" href="{{ path("home") }}"> Retourner a l'accueil</a>
+    <p class="paragraph">Votre message a bien été pris en compte.</p>
+    <p class="paragraph paragraph--success">Nos équipes reviendrons vers vous rapidement</p>
+    <a class="contact--button" href="{{ path("home") }}"> Retourner a l'accueil</a>
+
+    <p class="infos__rgpd">Pour toute demande relative à la gestion de vos données personnel merci de contacter : email-support@gmail.com</p>
 </div>
 {% endblock %}

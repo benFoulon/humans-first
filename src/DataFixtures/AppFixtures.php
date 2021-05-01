@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
                 ->setProfile($faker->paragraph())
                 ->setLocation("Le poste est a pourvoir à ".$faker->city())
                 ->setVacantPosition($faker->randomNumber(2))
-                ->setExperience($faker->paragraph())
+                ->setExcerpt($faker->paragraph())
                 ->setStatus('Cadre')
                 ->setDateStart("Le poste $i est à pourvoir le 21/04/2021")
                 ->setContractType('CDI')

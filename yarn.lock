@@ -14,7 +14,7 @@
   "resolved" "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.13.11.tgz"
   "version" "7.13.11"
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.4.0-0", "@babel/core@^7.7.0":
+"@babel/core@^7.7.0":
   "integrity" "sha512-bfIYcT0BdKeAZrovpMqX2Mx5NrgAckGbwT982AkdS5GNfn3KMGiprlBAtmBcFZRUmpaufS6WZFP8trvx8ptFDw=="
   "resolved" "https://registry.npmjs.org/@babel/core/-/core-7.13.10.tgz"
   "version" "7.13.10"
@@ -889,7 +889,7 @@
   dependencies:
     "acorn" "^8.0.5"
 
-"@symfony/webpack-encore@^1.0.0":
+"@symfony/webpack-encore@^1.1.2":
   "integrity" "sha512-RkgMBfU3ZliPcvCI/68Rh2qCd1LHZ5HcwSUZifErTWaNigrdK+kSbOkA6JOPbO0DI6w0PiVK3GZU5hv2aC1z3A=="
   "resolved" "https://registry.npmjs.org/@symfony/webpack-encore/-/webpack-encore-1.1.2.tgz"
   "version" "1.1.2"
@@ -1205,7 +1205,7 @@
   "resolved" "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   "version" "3.5.2"
 
-"ajv@^6.12.4", "ajv@^6.12.5", "ajv@^6.9.1":
+"ajv@^6.12.4", "ajv@^6.12.5":
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
@@ -4172,7 +4172,7 @@
     "source-map" "^0.6.1"
     "supports-color" "^6.1.0"
 
-"postcss@^8.1.0", "postcss@^8.2.8":
+"postcss@^8.2.8":
   "integrity" "sha512-1F0Xb2T21xET7oQV9eKuctbM9S7BC0fetoHCc4H13z0PT6haiRLP4T0ZY4XWh7iLP0usgqykT6p9B2RtOf4FPw=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.2.8.tgz"
   "version" "8.2.8"
@@ -4800,7 +4800,7 @@
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   "version" "1.5.0"
 
-"stimulus@^2.0", "stimulus@^2.0.0":
+"stimulus@^2.0.0":
   "integrity" "sha512-xipy7BS5TVpg4fX6S8LhrYZp7cmHGjmk09WSAiVx1gF5S5g43IWsuetfUhIk8HfHUG+4MQ9nY0FQz4dRFLs/8w=="
   "resolved" "https://registry.npmjs.org/stimulus/-/stimulus-2.0.0.tgz"
   "version" "2.0.0"
@@ -5210,7 +5210,7 @@
   dependencies:
     "minimalistic-assert" "^1.0.0"
 
-"webpack-cli@^4", "webpack-cli@4.x.x":
+"webpack-cli@^4":
   "integrity" "sha512-wXg/ef6Ibstl2f50mnkcHblRPN/P9J4Nlod5Hg9HGFgSeF8rsqDGHJeVe4aR26q9l62TUJi6vmvC2Qz96YJw1Q=="
   "resolved" "https://registry.npmjs.org/webpack-cli/-/webpack-cli-4.5.0.tgz"
   "version" "4.5.0"
@@ -5309,7 +5309,7 @@
     "source-list-map" "^2.0.1"
     "source-map" "^0.6.1"
 
-"webpack@*", "webpack@^4.0.0", "webpack@^4.0.0 || ^5.0.0", "webpack@^4.27.0 || ^5.0.0", "webpack@^4.4.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.12", "webpack@>=2", "webpack@>=5.0.0", "webpack@4.x.x || 5.x.x":
+"webpack@^5.12":
   "integrity" "sha512-z/F2lt2N1fZqaud1B4SzjL3OW03eULThbBXQ2OX4LSrZX4N9k1A5d0Rje3zS2g887DTWyAV0KGqEf64ois2dhg=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.26.3.tgz"
   "version" "5.26.3"

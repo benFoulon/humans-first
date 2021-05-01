@@ -62,6 +62,8 @@ a:hover{
     font-style: normal;    
     font-weight: bold;
     color: var(--dark-blue);
+    font-style: italic;
+    font-size: 1.5rem;
 }
 .filigrane_text{
     position: relative;
@@ -151,12 +153,18 @@ footer ul{
         margin: 3rem auto;
         max-width: 18rem;
     }
-.service a{
+.home__about--link{
     text-decoration: none;
     background-color: var(--dark-blue);
     padding: 2%;
     border-radius: 20px;
     color: var(--light);
+    display: inline-block;
+}
+.home__about--link:hover{
+    text-decoration: none;
+    color: var(--light);
+    transform: scale(1.1);
 }
 
 /* emploi section */
@@ -184,7 +192,7 @@ footer ul{
     color: var(--light) !important;
     border-radius: 20px !important;
 }
-.offer--title{
+.home__offer--title{
     margin-bottom: 0.2rem;
 }
 .emploi_horizontal_scroll{
@@ -203,6 +211,10 @@ footer ul{
     margin: 0.7rem auto;
     text-align: center;
     width: 45%;
+}
+.all__offer--link:hover{
+    text-decoration: none;
+    color: var(--light);
 }
 /* contact section */
 .contact{
@@ -223,6 +235,7 @@ footer ul{
     border-radius: 20px;
     color: var(--light);
     font-weight: 600;
+    display: inline-block;
 }
 .contact--button:hover{
     text-decoration: none;
@@ -253,6 +266,11 @@ footer ul{
     color: var(--light);
     margin-top: 1rem;
     text-align: center;
+    display: inline-block;
+}
+.business--presentation a:hover, .candidate--presentation a:hover{
+    text-decoration: none;
+    color: var(--light);
 }
 .candidate--presentation{
     margin-top: 2rem;
@@ -273,7 +291,7 @@ footer ul{
     display: flex;
     flex-direction: column;
     width: 45%;
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 .icon_png{
     margin: 0 auto;
@@ -315,6 +333,14 @@ footer ul{
 .presentation--paragraph {
     text-align: center;
 }
+.presentation--links{
+    color: var(--dark-blue);
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
 /* 
 ----------------------------------------------------------------------------------------------
                                         Business page 
@@ -338,7 +364,7 @@ footer ul{
 }
 .fa-arrow-right{
     color: var(--dark-blue);
-    margin: auto 1rem;
+    margin: auto 0.5rem;
 }
 
 /* 
@@ -349,18 +375,18 @@ footer ul{
 .offer--show{
     width: 60%;
     margin: 1rem auto;
-    text-align: center;
 }
-.offer--element{
+.offer--title{
     color: var(--dark-blue);
     font-family: 'PT Sans', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: underline;
     margin-bottom: 0.1rem;
+    text-align: left;
 }
 .offer--text{
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .offer__link--show{
     color: var(--dark-blue);
@@ -376,6 +402,10 @@ footer ul{
 .success__box{
     width: 60%;
     margin: 2rem auto;
+    text-align: center;
+}
+.paragraph--success{
+    margin-bottom: 2rem;
 }
 .spontaneous__candidacy{
     background-color: #ffffff;
@@ -396,13 +426,15 @@ footer ul{
     text-align: center;
     margin-top: 2rem;
 }
+
 .candidate--button{
     text-decoration: none;
     background-color: var(--dark-blue);
-    padding: 0.6rem;
+    padding: 2%;
     border-radius: 20px;
     color: var(--light);
     font-weight: 600;
+    display: inline-block;
 }
 .candidate--button:hover{
     text-decoration: none;
@@ -411,8 +443,15 @@ footer ul{
 }
 .button__box--candidate{
     margin: 2rem auto;
+    text-align: center;
 }
-
+.infos__rgpd{
+    font-size: 00.8rem;
+    text-align: center;
+    font-style: italic;
+    font-weight: 600rem;
+    margin-top: 3rem;
+}
 
 /* 
 ----------------------------------------------------------------------------------------------
@@ -603,6 +642,13 @@ footer ul{
     .candidate{
         position: relative;
         right: 60px;
+    }
+    .icon--handshake{
+        margin: 3.6rem auto;
+    }
+    .fa-arrow-right{
+        color: var(--dark-blue);
+        margin: auto 0.1rem;
     }
     }
     @media screen and (min-width: 1400px){

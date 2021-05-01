@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\OfferRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -55,11 +56,6 @@ class Offer
     private $vacantPosition;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $experience;
-
-    /**
      * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $status;
@@ -88,6 +84,11 @@ class Offer
      * @ORM\Column(type="text")
      */
     private $further_information;
+
+        /**
+     * @ORM\Column(type="text")
+     */
+    private $excerpt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Candidate::class, inversedBy="offers")
@@ -146,6 +147,11 @@ class Offer
         return $this;
     }
 
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title); 
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -190,18 +196,6 @@ class Offer
     public function setVacantPosition(?int $vacantPosition): self
     {
         $this->vacantPosition = $vacantPosition;
-
-        return $this;
-    }
-
-    public function getExperience(): ?string
-    {
-        return $this->experience;
-    }
-
-    public function setExperience(string $experience): self
-    {
-        $this->experience = $experience;
 
         return $this;
     }
@@ -274,6 +268,18 @@ class Offer
     public function setFurtherInformation(string $further_information): self
     {
         $this->further_information = $further_information;
+
+        return $this;
+    }
+
+    public function getExcerpt(): ?string
+    {
+        return $this->excerpt;
+    }
+
+    public function setExcerpt(string $excerpt): self
+    {
+        $this->excerpt = $excerpt;
 
         return $this;
     }

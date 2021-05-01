@@ -9,59 +9,55 @@
 <h2> {{ offer.title }} </h2>
     <div class="Container offer--show">
         <div>
-            <h3 class="offer--element">Date de publication</h3>
+            <h3 class="offer--title">Date de publication</h3>
             <p class="offer--text">{{ offer.publicationDate ? offer.publicationDate|date('d / m / Y') : '' }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Réfèrence</h3>
+            <h3 class="offer--title">Réfèrence</h3>
             <p class="offer--text">{{ offer.reference }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Intitulé du poste</h3>
+            <h3 class="offer--title">Intitulé du poste</h3>
             <p class="offer--text">{{ offer.title }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Description</h3>
-            <p class="offer--text">{{ offer.description }}</p>
+            <h3 class="offer--title">Description</h3>
+            <p class="offer--text">{{ offer.description |raw }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Profil recherché</h3>
-            <p class="offer--text">{{ offer.profile }}</p>
+            <h3 class="offer--title">Profil recherché</h3>
+            <p class="offer--text">{{ offer.profile |raw }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Localisation</h3>
+            <h3 class="offer--title">Localisation</h3>
             <p class="offer--text">{{ offer.location }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Poste à pourvoir</h3>
+            <h3 class="offer--title">Poste à pourvoir</h3>
             <p class="offer--text">{{ offer.vacantPosition }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Expérience</h3>
-            <p class="offer--text">{{ offer.experience }}</p>
-        </div>
-        <div>
-            <h3 class="offer--element">Statut</h3>
+            <h3 class="offer--title">Statut</h3>
             <p class="offer--text">{{ offer.status }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Date de démarage</h3>
+            <h3 class="offer--title">Date de démarage</h3>
             <p class="offer--text">{{ offer.dateStart }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Type de contrat</h3>
+            <h3 class="offer--title">Type de contrat</h3>
             <p class="offer--text">{{ offer.contractType }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Temps de travail hebdomadaire</h3>
+            <h3 class="offer--title">Temps de travail hebdomadaire</h3>
             <p class="offer--text">{{ offer.weeklyWorkTime }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Rémuneration</h3>
+            <h3 class="offer--title">Rémuneration</h3>
             <p class="offer--text">{{ offer.remuneration }}</p>
         </div>
         <div>
-            <h3 class="offer--element">Information complémentaires</h3>
+            <h3 class="offer--title">Information complémentaires</h3>
             <p class="offer--text">{{ offer.furtherInformation }}</p>
         </div>
         <div class="button__box--candidate">

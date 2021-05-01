@@ -49,10 +49,17 @@ class OfferController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="offer_show", methods={"GET"})
+     * @Route("/{slug}-{id}", name="offer_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"} )
      */
-    public function show(Offer $offer): Response
+    public function show(Offer $offer, string $slug): Response
     {
+        if ($offer->getSlug() !== $slug) {
+            return $this->redirectToRoute('offer_show', [
+                'id' => $offer->getId(),
+                'slug' => $offer->getSlug()
+            ], 301);
+        }
+
         return $this->render('pages/offers/offer.html.twig', [
             'offer' => $offer,
         ]);
