@@ -170,13 +170,14 @@ footer ul{
 /* emploi section */
 .card{
     border: 1px solid black;
-    width: 11rem;
-    max-width: 11rem;
+    width: 13rem;
+    max-width: 13rem;
     text-align: center;
     height: 15rem;
     border-radius: 20px !important;
     flex: 0 0 auto;
     margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .card-header{
     background-color: var(--dark) !important;
@@ -192,6 +193,7 @@ footer ul{
     color: var(--light) !important;
     border-radius: 20px !important;
 }
+
 .home__offer--title{
     margin-bottom: 0.2rem;
 }
@@ -199,6 +201,7 @@ footer ul{
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    padding: 1rem;
 }
 
 .all__offer--link{
@@ -451,6 +454,18 @@ footer ul{
     font-style: italic;
     font-weight: 600rem;
     margin-top: 3rem;
+}
+.pagination{
+    justify-content: center;
+}
+.page-link{
+    color: var(--dark-blue) !important;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff !important;
+    background-color: var(--dark-blue) !important;
+    border-color: var(--dark-blue) !important;
 }
 
 /* 

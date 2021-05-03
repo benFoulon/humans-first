@@ -48,41 +48,20 @@
     <section class="container emploi">
         <h2>DERNIÈRES OFFRES D'EMPLOI</h2>
         <div class="emploi_horizontal_scroll">
-            <div class="card">
-                <div class="card-header">
-                    <p class="home__offer--title">Laborentin H/F</p>
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><i class="fas fa-map-pin"></i>  Douai (59)</p>
-                    <p class="card-text"><i class="far fa-clock"></i>  CDI</p>
-                    <p class="card-text"><i class="fas fa-money-bill-wave"></i>  Non indiqué</p>
-                    <a href="#" class="btn card-btn">Postuler</a>
-                </div>
-            </div>
 
+        {% for offer in offers %}
             <div class="card">
                 <div class="card-header">
-                    <p class="home__offer--title">Laborentin H/F</p>
+                    <p class="home__offer--title">{{offer.title}}</p>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><i class="fas fa-map-pin"></i>  Douai (59)</p>
-                    <p class="card-text"><i class="far fa-clock"></i>  CDI</p>
-                    <p class="card-text"><i class="fas fa-money-bill-wave"></i>  Non indiqué</p>
-                    <a href="#" class="btn card-btn">Postuler</a>
+                    <p class="card-text"><i class="fas fa-map-pin"></i> {{offer.location}}</p>
+                    <p class="card-text"><i class="far fa-clock"></i> {{offer.contractType}}</p>
+                    <p class="card-text"><i class="fas fa-money-bill-wave"></i> {{offer.remuneration}}</p>
+                    <a href="{{ path('offer_show', {'id': offer.id, 'slug': offer.slug}) }}" class="btn card-btn">Postuler</a>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <p class="home__offer--title">Laborentin H/F</p>
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><i class="fas fa-map-pin"></i>  Douai (59)</p>
-                    <p class="card-text"><i class="far fa-clock"></i>  CDI</p>
-                    <p class="card-text"><i class="fas fa-money-bill-wave"></i>  Non indiqué</p>
-                    <a href="#" class="btn card-btn">Postuler</a>
-                </div>
-            </div>
+        {% endfor %}
         </div>
         <a class="all__offer--link" href="">Toutes nos offres</a>
     </section>

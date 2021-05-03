@@ -27,6 +27,7 @@ class CandidateType extends AbstractType
                 'download_uri' => true ,
                 'download_label' => 'download_file',
                 // ' asset_helper ' => true ,
+                'label' => 'Ajouter votre CV',
             ]);
         ;
     }

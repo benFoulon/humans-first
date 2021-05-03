@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Offer;
 use App\Repository\OfferRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,13 +14,16 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @param OfferRepository $repository
+     * @return Response
      */
     public function index(OfferRepository $repository): Response
     {
-        // $offer = $repository->findLatest();
+        $offers = $repository->findLatest();
         return $this->render('pages/home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'current_menu' => 'home'
+            'current_menu' => 'home',
+            'offers' => $offers
         ]);
     }
 
@@ -55,15 +60,19 @@ class HomeController extends AbstractController
     /**
      * @Route("/offres", name="offers")
      */
-    public function offers(): Response
+    public function offers(OfferRepository $repository, PaginatorInterface $paginator, Request $request): Response
     {
-        $repo = $this->getDoctrine()->getRepository(Offer::class);
-
-        $offers = $repo->findAll();
+        $offers = $paginator->paginate(
+            $repository->findAllActiveQuery(), /* just 'getRequest' */
+            $request->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+    );
+        
 
         return $this->render('pages/offers/index.html.twig', [
             'current_menu' => 'offers',
-            'offers' => $offers 
+            'offers' => $offers,
+
         ]);
     }
 

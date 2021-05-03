@@ -44,10 +44,10 @@ class AppFixtures extends Fixture
             $offer = new Offer();
             $offer->setPublicationDate(new \DateTime())
                 ->setReference($faker->randomNumber(5, true))
-                ->setTitle($faker->sentence(5))
+                ->setTitle($faker->sentence(3))
                 ->setDescription($faker->paragraph())
                 ->setProfile($faker->paragraph())
-                ->setLocation("Le poste est a pourvoir à ".$faker->city())
+                ->setLocation($faker->city())
                 ->setVacantPosition($faker->randomNumber(2))
                 ->setExcerpt($faker->paragraph())
                 ->setStatus('Cadre')

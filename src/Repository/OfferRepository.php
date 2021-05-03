@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Offer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Migrations\Query\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,34 +20,31 @@ class OfferRepository extends ServiceEntityRepository
         parent::__construct($registry, Offer::class);
     }
 
-    // /**
-    //  * @return Offer[] 
-    //  * Returns an array of Offer objects
-    //  */
-    // public function findLatest(): array
-    // {
-    //     return $this->createQueryBuilder('o')
-    //         ->setMaxResults(3)
-    //         ->setQuery()
-    // }
-
-
-    // /**
-    //  * @return Offer[] Returns an array of Offer objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Offer[] 
+     * Returns an array of Offer objects
+     */
+    public function findLatest(): array
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('o.isActive = true')
+            ->setMaxResults(3)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
+
+
+    /**
+    * @return Query
     */
+    
+    public function findAllActiveQuery()
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.isActive = true')
+            ->getQuery();
+    }
+    
 
     /*
     public function findOneBySomeField($value): ?Offer

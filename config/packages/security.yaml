@@ -37,8 +37,12 @@ security:
     access_control:
         - { path: '^/humans-first-admin', roles: ROLE_ADMIN }
         - { path: '^/user', roles: ROLE_ADMIN }
-        # - { path: '^/offer', roles: ROLE_ADMIN }
-        - { path: '^/message', roles: ROLE_ADMIN }
+        - { path: '^/offer/', roles: ROLE_ADMIN }
+        - { path: '^/offer/new', roles: ROLE_ADMIN }
+        - { path: '^/offer/{id}', roles: ROLE_ADMIN }
+        - { path: '^/message/', roles: ROLE_ADMIN }
+        - { path: '^/message/show/', roles: ROLE_ADMIN }
+        - { path: '^/message/{id}', roles: ROLE_ADMIN }
         - { path: '^/article', roles: ROLE_ADMIN }
         - { path: '^/comment', roles: ROLE_ADMIN }
         - { path: '^/register', roles: ROLE_ADMIN }
