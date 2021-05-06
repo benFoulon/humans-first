@@ -91,18 +91,18 @@ class Offer
     private $excerpt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Candidate::class, inversedBy="offers")
-     */
-    private $candidacy;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isActive;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Candidacy::class, mappedBy="offers")
+     */
+    private $candidacies;
+
     public function __construct()
     {
-        $this->candidacy = new ArrayCollection();
+        $this->candidacies = new ArrayCollection();
     }
 
 
@@ -284,30 +284,6 @@ class Offer
         return $this;
     }
 
-    /**
-     * @return Collection|Candidate[]
-     */
-    public function getCandidacy(): Collection
-    {
-        return $this->candidacy;
-    }
-
-    public function addCandidacy(Candidate $candidacy): self
-    {
-        if (!$this->candidacy->contains($candidacy)) {
-            $this->candidacy[] = $candidacy;
-        }
-
-        return $this;
-    }
-
-    public function removeCandidacy(Candidate $candidacy): self
-    {
-        $this->candidacy->removeElement($candidacy);
-
-        return $this;
-    }
-
     public function getIsActive(): ?bool
     {
         return $this->isActive;
@@ -319,4 +295,39 @@ class Offer
 
         return $this;
     }
+
+    /**
+     * @return Collection|Candidacy[]
+     */
+    public function getCandidacies(): Collection
+    {
+        return $this->candidacies;
+    }
+
+    public function addCandidacy(Candidacy $candidacy): self
+    {
+        if (!$this->candidacies->contains($candidacy)) {
+            $this->candidacies[] = $candidacy;
+            $candidacy->setOffers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidacy(Candidacy $candidacy): self
+    {
+        if ($this->candidacies->removeElement($candidacy)) {
+            // set the owning side to null (unless already changed)
+            if ($candidacy->getOffers() === $this) {
+                $candidacy->setOffers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    // public function __toString()
+    // {
+    //     return $this->candidacies->id;
+    // }
 }

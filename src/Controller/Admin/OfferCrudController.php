@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Offer;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -30,14 +31,15 @@ class OfferCrudController extends AbstractCrudController
             TextEditorField::new('profile'),
             TextField::new('location'),
             IntegerField::new('vacant_position'),
-            TextField::new('status'),
+            TextField::new('status')->hideOnIndex(),
             TextField::new('date_start'),
-            TextField::new('contract_type'),
-            TextField::new('weekly_work_time'),
-            TextField::new('remuneration'),
+            TextField::new('contract_type')->hideOnIndex(),
+            TextField::new('weekly_work_time')->hideOnIndex(),
+            TextField::new('remuneration')->hideOnIndex(),
             TextField::new('further_information'),
             BooleanField::new('isActive'),
-            TextEditorField::new('excerpt')
+            TextEditorField::new('excerpt'),
+            AssociationField::new('candidacies')
         ];
     }
     

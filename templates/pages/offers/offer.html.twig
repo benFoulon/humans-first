@@ -61,7 +61,7 @@
             <p class="offer--text">{{ offer.furtherInformation }}</p>
         </div>
         <div class="button__box--candidate">
-            <a class ="candidate--button" href="{{ path('candidate_new') }} ">Postuler</a>
+            <a class ="candidate--button" href="{{ path('candidate_new', {'id': offer.id}) }} ">Postuler</a>
         </div>
         
     </div>

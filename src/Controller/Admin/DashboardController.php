@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Offer;
 use App\Entity\Candidate;
 use App\Entity\Article;
+use App\Entity\Candidacy;
 use App\Entity\Comment;
 use App\Entity\Message;
 use App\Entity\SpontaneousCandidacy;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Candidatures', 'fas fa-user-edit', Candidacy::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user-edit', User::class);
         yield MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', Message::class);
 

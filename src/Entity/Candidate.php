@@ -59,13 +59,13 @@ class Candidate
     private $cvFile;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Offer::class, mappedBy="candidacy")
+     * @ORM\OneToMany(targetEntity=Candidacy::class, mappedBy="candidates")
      */
-    private $offers;
+    private $candidacies;
 
     public function __construct()
     {
-        $this->offers = new ArrayCollection();
+        $this->candidacies = new ArrayCollection();
     }
 
 
@@ -133,34 +133,7 @@ class Candidate
 
         return $this;
     }
-
-    /**
-     * @return Collection|Offer[]
-     */
-    public function getOffers(): Collection
-    {
-        return $this->offers;
-    }
-
-    public function addOffer(Offer $offer): self
-    {
-        if (!$this->offers->contains($offer)) {
-            $this->offers[] = $offer;
-            $offer->addCandidacy($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOffer(Offer $offer): self
-    {
-        if ($this->offers->removeElement($offer)) {
-            $offer->removeCandidacy($this);
-        }
-
-        return $this;
-    }
-
+    
     public function getFileName(): ?string
     {
         return $this->fileName;
@@ -187,5 +160,35 @@ class Candidate
     public function getCvFile(): ?File
     {
         return $this->cvFile;
+    }
+
+    /**
+     * @return Collection|Candidacy[]
+     */
+    public function getCandidacies(): Collection
+    {
+        return $this->candidacies;
+    }
+
+    public function addCandidacy(Candidacy $candidacy): self
+    {
+        if (!$this->candidacies->contains($candidacy)) {
+            $this->candidacies[] = $candidacy;
+            $candidacy->setCandidates($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidacy(Candidacy $candidacy): self
+    {
+        if ($this->candidacies->removeElement($candidacy)) {
+            // set the owning side to null (unless already changed)
+            if ($candidacy->getCandidates() === $this) {
+                $candidacy->setCandidates(null);
+            }
+        }
+
+        return $this;
     }
 }

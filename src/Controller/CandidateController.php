@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidacy;
 use App\Entity\Candidate;
+use App\Entity\Offer;
 use App\Form\CandidateType;
 use App\Repository\CandidateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,12 +35,20 @@ class CandidateController extends AbstractController
         $candidate = new Candidate();
         $form = $this->createForm(CandidateType::class, $candidate);
         $form->handleRequest($request);
+        $getId= $request->query->get('id');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $OfferRepo = $entityManager->getRepository(Offer::class);
+            $offer = $OfferRepo->find($getId);
+            $candidacy = new Candidacy();
+            $candidacy->setDate(new \DateTime());
+            $candidacy->setOffers($offer);
+            $candidate->addCandidacy($candidacy);
+            $offer->addCandidacy($candidacy);
+            $entityManager->persist($candidacy);
             $entityManager->persist($candidate);
             $entityManager->flush();
-
             return $this->redirectToRoute('candidacy_success');
         }
 
