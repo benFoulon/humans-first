@@ -1,4 +1,4 @@
-{% extends 'base._backendhtml.twig' %}
+{% extends 'base_backend.html.twig' %}
 
 {% block title %}SpontaneousCandidacy index{% endblock %}
 
@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Fisrtname</th>
+                <th>firstname</th>
                 <th>Lastname</th>
                 <th>Mail</th>
                 <th>Phone</th>
@@ -17,7 +17,6 @@
                 <th>HighestQualification</th>
                 <th>ActivityDomain</th>
                 <th>Cv</th>
-                <th>MotivationLetter</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,7 +24,7 @@
         {% for spontaneous_candidacy in spontaneous_candidacies %}
             <tr>
                 <td>{{ spontaneous_candidacy.id }}</td>
-                <td>{{ spontaneous_candidacy.fisrtname }}</td>
+                <td>{{ spontaneous_candidacy.firstname }}</td>
                 <td>{{ spontaneous_candidacy.lastname }}</td>
                 <td>{{ spontaneous_candidacy.mail }}</td>
                 <td>{{ spontaneous_candidacy.phone }}</td>
@@ -33,7 +32,6 @@
                 <td>{{ spontaneous_candidacy.highestQualification }}</td>
                 <td>{{ spontaneous_candidacy.activityDomain }}</td>
                 <td>{{ spontaneous_candidacy.cv }}</td>
-                <td>{{ spontaneous_candidacy.motivationLetter }}</td>
                 <td>
                     <a href="{{ path('spontaneous_candidacy_show', {'id': spontaneous_candidacy.id}) }}">show</a>
                     <a href="{{ path('spontaneous_candidacy_edit', {'id': spontaneous_candidacy.id}) }}">edit</a>

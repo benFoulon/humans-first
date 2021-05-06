@@ -6,3 +6,7 @@ vich_uploader:
             uri_prefix: '%cv_candidacy%'
             upload_destination: '%kernel.project_dir%/public%cv_candidacy%'
             namer : Vich\UploaderBundle\Naming\SmartUniqueNamer
+        spontaneous_candidacy:
+            uri_prefix: '%spontaneous_candidacy%'
+            upload_destination: '%kernel.project_dir%/public%spontaneous_candidacy%'
+            namer : Vich\UploaderBundle\Naming\SmartUniqueNamer

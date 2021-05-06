@@ -42,6 +42,7 @@ class OfferRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('o')
             ->andWhere('o.isActive = true')
+            ->orderBy('o.id', 'DESC')
             ->getQuery();
     }
     

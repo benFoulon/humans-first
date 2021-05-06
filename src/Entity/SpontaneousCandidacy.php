@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\SpontaneousCandidacyRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=SpontaneousCandidacyRepository::class)
+ * @Vich\Uploadable
  */
 class SpontaneousCandidacy
 {
@@ -20,7 +23,7 @@ class SpontaneousCandidacy
     /**
      * @ORM\Column(type="string", length=110)
      */
-    private $fisrtname;
+    private $firstname;
 
     /**
      * @ORM\Column(type="string", length=110)
@@ -53,28 +56,31 @@ class SpontaneousCandidacy
     private $activityDomain;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
     private $cv;
 
-    /**
-     * @ORM\Column(type="blob")
+        /**
+     * @Vich\UploadableField(mapping="spontaneous_candidacy", fileNameProperty="cv")
+     * @var File
      */
-    private $motivationLetter;
+    private $cvFile;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFisrtname(): ?string
+    public function getfirstname(): ?string
     {
-        return $this->fisrtname;
+        return $this->firstname;
     }
 
-    public function setFisrtname(string $fisrtname): self
+    public function setfirstname(string $firstname): self
     {
-        $this->fisrtname = $fisrtname;
+        $this->firstname = $firstname;
 
         return $this;
     }
@@ -151,27 +157,34 @@ class SpontaneousCandidacy
         return $this;
     }
 
-    public function getCv()
+    public function getCv(): ?string
     {
         return $this->cv;
     }
 
-    public function setCv($cv): self
+    public function setCv(string $cv): self
     {
         $this->cv = $cv;
 
         return $this;
     }
 
-    public function getMotivationLetter()
+    public function setCvFile(File $cv = null)
     {
-        return $this->motivationLetter;
+        $this->cvFile = $cv;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($cv) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
-    public function setMotivationLetter($motivationLetter): self
+    public function getCvFile()
     {
-        $this->motivationLetter = $motivationLetter;
-
-        return $this;
+        return $this->cvFile;
     }
+
 }

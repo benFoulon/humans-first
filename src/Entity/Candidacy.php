@@ -73,8 +73,8 @@ class Candidacy
         return $this;
     }
     
-    public function __toString()
-    {
-        return $this->offers;
-    }
+//     public function __toString()
+//     {
+//         return $this->getOffers();
+//     }
 }

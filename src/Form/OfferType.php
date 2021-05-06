@@ -27,6 +27,7 @@ class OfferType extends AbstractType
             ->add('weeklyWorkTime')
             ->add('remuneration')
             ->add('further_information');
+            // ->add('candidacies');
     }
 
     public function configureOptions(OptionsResolver $resolver)

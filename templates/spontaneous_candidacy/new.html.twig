@@ -1,11 +1,24 @@
-{% extends 'base_backend.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}New SpontaneousCandidacy{% endblock %}
+{% block title %}Candidature-Spontanée{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <h1>Create new SpontaneousCandidacy</h1>
+    <h3>Déposez votre CV</h3>
+    <div class="container--form">
+        {{ include('spontaneous_candidacy/_form.html.twig') }}
+    </div>
 
-    {{ include('spontaneous_candidacy/_form.html.twig') }}
+{% endblock %}
 
-    <a href="{{ path('spontaneous_candidacy_index') }}">back to list</a>
+{% block javascripts %}
+    <script>
+        $('.custom-file-input').on('change', function(event) {
+            var inputFile = event.currentTarget;
+            $(inputFile).parent()
+                .find('.custom-file-label')
+                .html(inputFile.files[0].name);
+        });
+    </script>
 {% endblock %}

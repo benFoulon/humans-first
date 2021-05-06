@@ -1,4 +1,9 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="button__box--candidate">
+        <button class="candidate--button">{{ button_label|default('Déposer votre CV') }}</button>
+    </div>
 {{ form_end(form) }}
+
+        <p class="infos__rgpd">Pour toute demande relative à la gestion de vos données personnel merci de contacter : email-support@gmail.com</p>
+
