@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Offer;
 use App\Form\OfferType;
 use App\Repository\OfferRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,7 @@ class OfferController extends AbstractController
 {
     /**
      * @Route("/index", name="offer_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function index(OfferRepository $offerRepository): Response
     {
@@ -27,6 +29,7 @@ class OfferController extends AbstractController
 
     /**
      * @Route("/new", name="offer_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +53,7 @@ class OfferController extends AbstractController
 
     /**
      * @Route("/{slug}-{id}", name="offer_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"} )
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(Offer $offer, string $slug): Response
     {
@@ -67,6 +71,7 @@ class OfferController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="offer_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function edit(Request $request, Offer $offer): Response
     {
@@ -87,6 +92,7 @@ class OfferController extends AbstractController
 
     /**
      * @Route("/{id}", name="offer_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function delete(Request $request, Offer $offer): Response
     {

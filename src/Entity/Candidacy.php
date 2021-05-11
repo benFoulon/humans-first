@@ -4,12 +4,17 @@ namespace App\Entity;
 
 use App\Repository\CandidacyRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 
 /**
  * @ORM\Entity(repositoryClass=CandidacyRepository::class)
- * 
+ * @UniqueEntity(
+ *     fields={"candidate", "offer"},
+ *     errorPath="candidate",
+ *     message="Vous ne pouvez postuler qu'une seule fois à une même annonce"
+ * )
  */
 class Candidacy
 {

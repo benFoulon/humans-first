@@ -27,6 +27,7 @@ security:
                 target: home
 
 
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -39,7 +40,7 @@ security:
     #Back-office
         - { path: '^/humans-first-admin', roles: ROLE_ADMIN }
         - { path: '^/user', roles: ROLE_ADMIN }
-        #- { path: '^/register', roles: ROLE_ADMIN }
+        - { path: '^/register', roles: ROLE_ADMIN }
 
     #Offre d'emploi
         - { path: '^/offer/index', roles: ROLE_ADMIN }
@@ -49,10 +50,10 @@ security:
         - { path: '^/offer/new', roles: ROLE_ADMIN }
 
     #Candidats 
-        - { path: '^/candidate/index', roles: ROLE_ADMIN}
-        - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN}
-        - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
-        - { path: '^/candidate/[0-9]+/edit', roles: ROLE_ADMIN }
+        # - { path: '^/candidate/index', roles: ROLE_ADMIN}
+        # - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN}
+        # - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        # - { path: '^/candidate/[0-9]+/edit', roles: ROLE_ADMIN }
 
     #Message 
         - { path: '^/message/index', roles: ROLE_ADMIN }
@@ -61,19 +62,16 @@ security:
         - { path: '^/message/[0-9]+/edit', roles: ROLE_ADMIN }
 
     #Article
-        - { path: '^/article/index', roles: ROLE_ADMIN }
-        - { path: '^/article/[0-9]+', roles: ROLE_ADMIN}
-        - { path: '^/article/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
-        - { path: '^/article/[0-9]+/edit', roles: ROLE_ADMIN }
+        # - { path: '^/article/index', roles: ROLE_ADMIN }
+        # - { path: '^/article/[0-9]+', roles: ROLE_ADMIN}
+        # - { path: '^/article/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        # - { path: '^/article/[0-9]+/edit', roles: ROLE_ADMIN }
 
-    #Commentaire
-        - { path: '^/comment/index', roles: ROLE_ADMIN }
-        - { path: '^/comment/[0-9]+', roles: ROLE_ADMIN}
-        - { path: '^/comment/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
-        - { path: '^/comment/[0-9]+/edit', roles: ROLE_ADMIN }
-
-    
-    
+    #Catégories
+        - { path: '^/category/index', roles: ROLE_ADMIN }
+        - { path: '^/category/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/category/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/category/[0-9]+/edit', roles: ROLE_ADMIN }
 
     #Candidature Spontanée
         - { path: '^/spontaneous-candidacy/index', roles: ROLE_ADMIN}

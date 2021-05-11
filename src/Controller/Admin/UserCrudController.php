@@ -33,8 +33,6 @@ class UserCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Liste des utilisateur')
-        ->setPageTitle('edit', fn (User $user) => sprintf('Utilisateur: <b>%s</b>', $user->getEmail()))
-        ->setDateFormat('medium');
         ;
     }
     

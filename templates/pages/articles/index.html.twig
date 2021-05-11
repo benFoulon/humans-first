@@ -2,7 +2,8 @@
 
 {% block body %}
 <div class="container">
-<h2 class="mb-3">Actualités</h2>
+<div class="container news__logo mt-4"><img class="icon_png" src="{{ asset('build/newspaper.svg') }}" width="70" height="70"></div>
+<h2 class="mb-3"><strong>Actualités</strong></h2>
 {% for category in categories %}
     {% if category.isActive is defined and category.isActive == true %}
         <h3 class="category__title">{{ category.title }}</h3>
@@ -14,7 +15,7 @@
                     <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="">
                     <p class="metadata__article"> Publié le : {{ article.publicationDate | date('d/m/Y') }}</p>
                         <h4 class="article__title">{{ article.title }}</h4>
-                        <p class="article__excerpt">{{ article.excerpt | raw }}</p>
+                        <p class="article__excerpt mb-2">{{ article.excerpt | raw }}</p>
                         <a class="article__button" href="{{ path('article_show', {id: article.id, slug: article.slug}) }}"> Lire la suite </a>
                     </div>
                     {% endif %}

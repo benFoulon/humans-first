@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,11 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/category")
+ * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
  */
 class CategoryController extends AbstractController
 {
     /**
      * @Route("/", name="category_index", methods={"GET"})
+     * 
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
@@ -50,6 +53,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}", name="category_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(Category $category): Response
     {
@@ -60,6 +64,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -80,6 +85,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}", name="category_delete", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function delete(Request $request, Category $category): Response
     {

@@ -38,7 +38,7 @@ class Message
     private $town;
 
     /**
-     * @ORM\Column(type="string", length=190)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $businessName;
 
@@ -61,6 +61,7 @@ class Message
      * @ORM\Column(type="text")
      */
     private $content;
+
 
     public function getId(): ?int
     {

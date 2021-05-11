@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\SpontaneousCandidacy;
 use App\Form\SpontaneousCandidacyType;
 use App\Repository\SpontaneousCandidacyRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,7 @@ class SpontaneousCandidacyController extends AbstractController
 {
     /**
      * @Route("/index", name="spontaneous_candidacy_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function index(SpontaneousCandidacyRepository $spontaneousCandidacyRepository): Response
     {
@@ -27,6 +29,7 @@ class SpontaneousCandidacyController extends AbstractController
 
     /**
      * @Route("/new", name="spontaneous_candidacy_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +53,7 @@ class SpontaneousCandidacyController extends AbstractController
 
     /**
      * @Route("/{id}", name="spontaneous_candidacy_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(SpontaneousCandidacy $spontaneousCandidacy): Response
     {
@@ -60,6 +64,7 @@ class SpontaneousCandidacyController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="spontaneous_candidacy_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function edit(Request $request, SpontaneousCandidacy $spontaneousCandidacy): Response
     {
@@ -80,6 +85,7 @@ class SpontaneousCandidacyController extends AbstractController
 
     /**
      * @Route("/{id}", name="spontaneous_candidacy_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function delete(Request $request, SpontaneousCandidacy $spontaneousCandidacy): Response
     {

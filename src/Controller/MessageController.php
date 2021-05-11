@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Message;
 use App\Form\MessageType;
 use App\Repository\MessageRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,7 @@ class MessageController extends AbstractController
 {
     /**
      * @Route("/index", name="message_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function index(MessageRepository $messageRepository): Response
     {
@@ -50,6 +52,7 @@ class MessageController extends AbstractController
 
     /**
      * @Route("/{id}", name="message_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(Message $message): Response
     {
@@ -60,6 +63,7 @@ class MessageController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="message_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function edit(Request $request, Message $message): Response
     {
@@ -80,6 +84,7 @@ class MessageController extends AbstractController
 
     /**
      * @Route("/{id}", name="message_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function delete(Request $request, Message $message): Response
     {

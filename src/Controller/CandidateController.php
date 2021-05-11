@@ -7,6 +7,7 @@ use App\Entity\Candidate;
 use App\Entity\Offer;
 use App\Form\CandidateType;
 use App\Repository\CandidateRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,7 @@ class CandidateController extends AbstractController
 {
     /**
      * @Route("/index", name="candidate_index", methods={"GET"})
+     *  @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function index(CandidateRepository $candidateRepository): Response
     {
@@ -60,6 +62,7 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidate_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(Candidate $candidate): Response
     {
@@ -70,6 +73,7 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="candidate_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function edit(Request $request, Candidate $candidate): Response
     {
@@ -90,6 +94,7 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidate_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function delete(Request $request, Candidate $candidate): Response
     {
