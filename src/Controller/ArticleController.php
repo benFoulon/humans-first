@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/", name="article_index", methods={"GET"})
+     * @Route("/index", name="article_index", methods={"GET"})
      */
     public function index(ArticleRepository $articleRepository): Response
     {
@@ -49,11 +49,17 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
+     * @Route("/{slug}-{id}", name="article_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"})
      */
-    public function show(Article $article): Response
+    public function show(Article $article, string $slug): Response
     {
-        return $this->render('article/show.html.twig', [
+        if ($article->getSlug() !== $slug) {
+            return $this->redirectToRoute('article_show', [
+                'id' => $article->getId(),
+                'slug' => $article->getSlug()
+            ], 301);
+        }
+        return $this->render('pages/articles/article.html.twig', [
             'article' => $article,
         ]);
     }

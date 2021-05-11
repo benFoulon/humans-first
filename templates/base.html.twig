@@ -14,9 +14,9 @@
     </head>
     <body>
             <div class="header">
-                <img class="hf_logo" src="{{ asset('build/hf_logo.png')}}" alt="">
+                <img class="hf_logo" src="{{ asset('build/hf-logo.png')}}" alt="">
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-light sticky-top" id="navBar">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -27,6 +27,7 @@
                         <a class="nav-link {% if current_menu is defined and current_menu == 'business' %}active{% endif %}" href="/entreprise">Entreprises</a>
                         <a class="nav-link {% if current_menu is defined and current_menu == 'personn' %}active{% endif %}" href="/candidat">Candidats</a>
                         <a class="nav-link {% if current_menu is defined and current_menu == 'offers' %}active{% endif %}" href="/offres">Offres d'emploi</a>
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'articles' %}active{% endif %}" href="/article">Actualités</a>
                         <a class="nav-link" href="{{ path("message_new") }}">Contact</a>
                     </div>
                 </div>
@@ -35,7 +36,7 @@
         {% block body %}{% endblock %}
         <section class="contact">
             <p>VOUS AVEZ DES QUESTIONS ?</p>
-            <a class="contact--button" href="">Contactez nous !</a>
+            <a class="contact--button" href="{{ path("message_new") }}">Contactez nous !</a>
         </section>
 
         <footer>
@@ -83,6 +84,17 @@
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/1792b4492a.js" crossorigin="anonymous"></script>
-        {% block javascripts %}{% endblock %}
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+        {% block javascripts %}
+        <script>
+            $(window).scroll(function() {
+            if ($(window).scrollTop() > 10) {
+                $('#navBar').addClass('floatingNav');
+            } else {
+                $('#navBar').removeClass('floatingNav');
+            }
+        });
+        </script>
+        {% endblock %}
     </body>
 </html>

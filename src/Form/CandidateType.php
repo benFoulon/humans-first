@@ -28,7 +28,15 @@ class CandidateType extends AbstractType
                 'download_label' => 'download_file',
                 // ' asset_helper ' => true ,
                 'label' => 'Ajouter votre CV',
-            ]);
+            ])
+            // ->add('candidacies', EntityType::class, [
+            //     'class' => Candidacy::class,
+            //     'choice_label' => function($offer) {
+            //         return "{$offer->getTitle()} {$offer->getReference()}";
+            //     },
+            //     'multiple' => true,
+            //     'expanded' => true,
+            // ]);
         ;
     }
 

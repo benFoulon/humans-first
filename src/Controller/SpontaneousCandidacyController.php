@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SpontaneousCandidacyController extends AbstractController
 {
     /**
-     * @Route("/", name="spontaneous_candidacy_index", methods={"GET"})
+     * @Route("/index", name="spontaneous_candidacy_index", methods={"GET"})
      */
     public function index(SpontaneousCandidacyRepository $spontaneousCandidacyRepository): Response
     {

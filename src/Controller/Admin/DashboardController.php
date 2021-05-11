@@ -7,6 +7,7 @@ use App\Entity\Offer;
 use App\Entity\Candidate;
 use App\Entity\Article;
 use App\Entity\Candidacy;
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Message;
 use App\Entity\SpontaneousCandidacy;
@@ -47,7 +48,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Blog');
         yield MenuItem::linkToCrud('Articles', 'fas fa-newspaper', Article::class);
-        yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment-dots', Comment::class);
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-tag', Category::class);
 
 
     }

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="mt-1 ml-3">
+    <a style="font-size: 1.5rem; color: #2F4F4F; text-decoration:none" href="{{ path('article') }} ">
+        <i class="far fa-arrow-alt-circle-left"></i>
+    </a>
+</div>
+
+    <div class="containeur article__show">
+        <div class="container">
+            <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Image de l'article {{ article.title }}">
+            <h3>{{article.title}}</h3>
+            <p class="metadata__article">Publiée le : {{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</p>
+            <p class="article__content">{{ article.content | raw }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Message;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -20,16 +21,24 @@ class MessageCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
+            TextField::new('firstname', 'Prénom'),
+            TextField::new('lastname', 'Nom'),
             TextField::new('type'),
-            TextField::new('town')->hideOnIndex(),
-            TextField::new('businessName'),
+            TextField::new('town', 'ville')->hideOnIndex(),
+            TextField::new('businessName', 'Nom de l\'entreprise'),
             TextField::new('mail'),
-            TextField::new('phone')->hideOnIndex(),
-            TextField::new('object'),
-            TextEditorField::new('content'),
+            TextField::new('phone', 'Téléphone')->hideOnIndex(),
+            TextField::new('object', 'Objet'),
+            TextEditorField::new('content', 'Contenu'),
         ];
     }
     
+    public function configureCrud(Crud $crud) :Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Boite de réception')
+        ->setPageTitle('edit', fn (Message $message) => sprintf('Message de : <b>%s</b>', $message->getFirstname().' '.$message->getLastname()))
+        ->setDateFormat('medium');
+        ;
+    }
 }

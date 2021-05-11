@@ -21,11 +21,15 @@ body {
     max-width: 200px;
     display: block;
     margin: 0 auto;
+    padding: 1rem 0; 
 }
 h2, h3{
     text-align: center;
     color: var(--dark-blue);
     font-family: 'PT Sans', sans-serif;
+}
+.floatingNav {
+    box-shadow: 0px 10px 10px -5px #7a7a7a;
 }
 .navbar{
     background-color: white;
@@ -196,6 +200,7 @@ footer ul{
 }
 .card-text{
     text-align: left;
+    margin-bottom: 0.5rem;
 }
 .card-btn{
     font-size: 0.9rem !important;
@@ -500,7 +505,79 @@ footer ul{
     margin-left: 3rem;
 }
 
-
+/* 
+----------------------------------------------------------------------------------------------
+                                        Article page
+----------------------------------------------------------------------------------------------
+*/
+.category__title{
+    text-align: left;
+    font-size: 1.6rem;
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+.article__horizontal-scroll{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem;
+}
+.article__card{
+    border: 1px solid rgb(197, 197, 197);
+    width: 20rem;
+    max-width: 20rem;
+    text-align: center;
+    height: 27rem;
+    border-radius: 20px !important;
+    flex: 0 0 auto;
+    margin: 1rem;
+    padding: 0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.185) 0px 5px 15px;
+    background-color: #e6e5dc;
+}
+.article__image{
+    max-width: 70%;
+    margin-top: 5px;
+}
+.article__title{
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-top: 10px;
+    font-weight: 600;
+}
+.article__button{
+    display: inline-block;
+    text-decoration: none;
+    color:var(--light);
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: 20px;
+}
+.article__button:hover{
+    text-decoration: none;
+    color: var(--light);
+    transform: scale(1.1);
+}
+.metadata__article{
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+.article__show{
+    text-align: center;
+}
+.article__excerpt{
+    font-family: 'EB Garamond', serif;
+    margin: 0;
+}
+.article__content{
+    font-family: 'EB Garamond', serif;
+    padding: 0.5rem;
+    font-size: 1.09rem;
+}
 
 /* 
 ----------------------------------------------------------------------------------------------

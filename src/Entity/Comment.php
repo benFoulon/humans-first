@@ -25,24 +25,20 @@ class Comment
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=150)
-     */
-    private $mail;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $content;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="newComment")
+     * @ORM\Column(type="datetime")
      */
-    private $articles;
+    private $createdAt;
 
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $article;
 
     public function getId(): ?int
     {
@@ -85,34 +81,27 @@ class Comment
         return $this;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->articles;
+        return $this->createdAt;
     }
 
-    public function addArticle(Article $article): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setNewComment($this);
-        }
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function getArticle(): ?Article
     {
-        if ($this->articles->removeElement($article)) {
-            // set the owning side to null (unless already changed)
-            if ($article->getNewComment() === $this) {
-                $article->setNewComment(null);
-            }
-        }
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }
-
 }

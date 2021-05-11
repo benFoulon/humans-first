@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\CandidacyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * @ORM\Entity(repositoryClass=CandidacyRepository::class)
+ * 
  */
 class Candidacy
 {
@@ -72,9 +75,4 @@ class Candidacy
 
         return $this;
     }
-    
-//     public function __toString()
-//     {
-//         return $this->getOffers();
-//     }
 }

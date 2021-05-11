@@ -74,6 +74,10 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+    const config = Encore.getWebpackConfig();
+    config.watchOptions = {
+    poll: true,
+    };
 ;
 
-module.exports = Encore.getWebpackConfig();
+module.exports = config;

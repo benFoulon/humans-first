@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class OfferController extends AbstractController
 {
     /**
-     * @Route("/", name="offer_index", methods={"GET"})
+     * @Route("/index", name="offer_index", methods={"GET"})
      */
     public function index(OfferRepository $offerRepository): Response
     {

@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Candidate;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -29,8 +31,23 @@ class CandidateCrudController extends AbstractCrudController
             TextField::new('phone'),
             TextField::new('town'),
             TextField::new('cvFile')->setFormType(VichFileType::class)->hideOnIndex(),
-            TextField::new('fileName')->hideOnIndex(),
+            // ImageField::new('fileName')->setBasePath('uploads/cv_candidatures'),
+            AssociationField::new('candidacies', 'Candidatures')
+                ->setFormTypeOptions([
+                    'choice_label' => function($candidacy) {
+                        return "{$candidacy->getOffers()}";
+                    }
+                ]),
         ];
+    }
+
+    public function configureCrud(Crud $crud) :Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Liste des candidats')
+        ->setPageTitle('edit', fn (Candidate $candidate) => sprintf('Candidature de : <b>%s</b>', $candidate->getFirstname().' '.$candidate->getLastname()))
+        ->setDateFormat('medium');
+        ;
     }
 
 }

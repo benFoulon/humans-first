@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentController extends AbstractController
 {
     /**
-     * @Route("/", name="comment_index", methods={"GET"})
+     * @Route("/index", name="comment_index", methods={"GET"})
      */
     public function index(CommentRepository $commentRepository): Response
     {

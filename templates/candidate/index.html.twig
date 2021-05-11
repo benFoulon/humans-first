@@ -14,7 +14,7 @@
                 <th>Mail</th>
                 <th>Phone</th>
                 <th>Town</th>
-                <th>Cv</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -27,7 +27,6 @@
                 <td>{{ candidate.mail }}</td>
                 <td>{{ candidate.phone }}</td>
                 <td>{{ candidate.town }}</td>
-                <td>{{ candidate.cv }}</td>
                 <td>
                     <a href="{{ path('candidate_show', {'id': candidate.id}) }}">show</a>
                     <a href="{{ path('candidate_edit', {'id': candidate.id}) }}">edit</a>

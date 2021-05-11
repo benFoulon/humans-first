@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Offer;
+use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use App\Repository\OfferRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,13 +68,28 @@ class HomeController extends AbstractController
             $repository->findAllActiveQuery(), /* just 'getRequest' */
             $request->query->getInt('page', 1), /*page number*/
             5 /*limit per page*/
-    );
+        );
         
 
         return $this->render('pages/offers/index.html.twig', [
             'current_menu' => 'offers',
             'offers' => $offers,
 
+        ]);
+    }
+
+    /**
+     * @Route("/article", name="article")
+     */ 
+    public function article(ArticleRepository $repository, CategoryRepository $categoryRepository): Response
+    {
+        $articles = $repository->findAll();
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('pages/articles/index.html.twig', [
+            'current_menu' => 'article',
+            'articles' => $articles,
+            'categories' => $categories
         ]);
     }
 

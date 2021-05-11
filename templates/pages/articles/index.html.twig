@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+<h2 class="mb-3">Actualités</h2>
+{% for category in categories %}
+    {% if category.isActive is defined and category.isActive == true %}
+        <h3 class="category__title">{{ category.title }}</h3>
+        <div class="article__horizontal-scroll">
+            {% for article in articles %}
+                {% if article.isActive is defined and article.isActive == true %}
+                    {% if article.category.id == category.id %}
+                    <div class="article__card">
+                    <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="">
+                    <p class="metadata__article"> Publié le : {{ article.publicationDate | date('d/m/Y') }}</p>
+                        <h4 class="article__title">{{ article.title }}</h4>
+                        <p class="article__excerpt">{{ article.excerpt | raw }}</p>
+                        <a class="article__button" href="{{ path('article_show', {id: article.id, slug: article.slug}) }}"> Lire la suite </a>
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

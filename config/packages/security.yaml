@@ -36,16 +36,46 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+    #Back-office
         - { path: '^/humans-first-admin', roles: ROLE_ADMIN }
         - { path: '^/user', roles: ROLE_ADMIN }
-        # - { path: '^/offer/', roles: ROLE_ADMIN }
-        # - { path: '^/offer/new', roles: ROLE_ADMIN }
-        # - { path: '^/offer/{id}', roles: ROLE_ADMIN }
-        # - { path: '^/message/', roles: ROLE_ADMIN }
-        # - { path: '^/message/show/', roles: ROLE_ADMIN }
-        # - { path: '^/message/{id}', roles: ROLE_ADMIN }
-        - { path: '^/article', roles: ROLE_ADMIN }
-        - { path: '^/comment', roles: ROLE_ADMIN }
-        - { path: '^/register', roles: ROLE_ADMIN }
-        - { path: '^/spontaneous-candidacy', roles: ROLE_ADMIN }
-        # - { path: '^/admin', roles: ROLE_USER }
+        #- { path: '^/register', roles: ROLE_ADMIN }
+
+    #Offre d'emploi
+        - { path: '^/offer/index', roles: ROLE_ADMIN }
+        - { path: '^/offer/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/offer/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/offer/[0-9]+/edit', roles: ROLE_ADMIN }
+        - { path: '^/offer/new', roles: ROLE_ADMIN }
+
+    #Candidats 
+        - { path: '^/candidate/index', roles: ROLE_ADMIN}
+        - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/candidate/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/candidate/[0-9]+/edit', roles: ROLE_ADMIN }
+
+    #Message 
+        - { path: '^/message/index', roles: ROLE_ADMIN }
+        - { path: '^/message/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/message/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/message/[0-9]+/edit', roles: ROLE_ADMIN }
+
+    #Article
+        - { path: '^/article/index', roles: ROLE_ADMIN }
+        - { path: '^/article/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/article/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/article/[0-9]+/edit', roles: ROLE_ADMIN }
+
+    #Commentaire
+        - { path: '^/comment/index', roles: ROLE_ADMIN }
+        - { path: '^/comment/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/comment/[0-9]+', roles: ROLE_ADMIN, method: "DELETE"}
+        - { path: '^/comment/[0-9]+/edit', roles: ROLE_ADMIN }
+
+    
+    
+
+    #Candidature Spontanée
+        - { path: '^/spontaneous-candidacy/index', roles: ROLE_ADMIN}
+        - { path: '^/spontaneous-candidacy/[0-9]+', roles: ROLE_ADMIN}
+        - { path: '^/spontaneous-candidacy/[0-9]+/edit', roles: ROLE_ADMIN }

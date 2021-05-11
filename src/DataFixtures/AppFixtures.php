@@ -2,7 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Article;
 use App\Entity\Candidate;
+use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Message;
 use App\Entity\Offer;
 use App\Entity\User;
@@ -42,7 +45,7 @@ class AppFixtures extends Fixture
 
         for($i = 1; $i <= 20; $i++){
             $offer = new Offer();
-            $offer->setPublicationDate(new \DateTime())
+            $offer->setPublicationDate($faker->dateTimeBetween('-3 months', 'now'))
                 ->setReference($faker->randomNumber(5, true))
                 ->setTitle($faker->sentence(3))
                 ->setDescription($faker->paragraph())
@@ -90,6 +93,33 @@ class AppFixtures extends Fixture
 
             $manager->persist($message);
         }
+
+        // Créer 3 catégorie 
+        for($i =1; $i<= 5; $i++){
+            $category = new Category;
+            $category->setTitle("Catégorie n°$i")
+            ->setDescription($faker->paragraph())
+            ->setIsActive($faker->boolean());
+
+            $manager->persist($category);
+
+            // Créer entre 2 et 5 article
+            for($j = 1; $j<= mt_rand(2, 5); $j++){
+                $article = new Article();
+
+                $article->setPublicationDate($faker->dateTimeBetween('-3 months', 'now'))
+                ->setTitle($faker->sentence())
+                ->setExcerpt($faker->paragraph())
+                ->setContent($faker->paragraphs(5, true))
+                ->setImageName('366572-6098566a7da8b730202328.jpg')
+                ->setCategory($category)
+                ->setIsActive($faker->boolean());
+
+                $manager->persist($article);
+            }
+        }
+
+
 
         $manager->flush();
     }

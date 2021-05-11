@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -26,6 +27,15 @@ class UserCrudController extends AbstractCrudController
             Field::new('password') ->hideOnIndex(),
             CollectionField::New('roles'),
         ];
+    }
+
+    public function configureCrud(Crud $crud) :Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Liste des utilisateur')
+        ->setPageTitle('edit', fn (User $user) => sprintf('Utilisateur: <b>%s</b>', $user->getEmail()))
+        ->setDateFormat('medium');
+        ;
     }
     
 }
