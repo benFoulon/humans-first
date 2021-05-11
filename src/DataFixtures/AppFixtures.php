@@ -111,7 +111,7 @@ class AppFixtures extends Fixture
                 ->setTitle($faker->sentence())
                 ->setExcerpt($faker->paragraph())
                 ->setContent($faker->paragraphs(5, true))
-                ->setImageName('366572-6098566a7da8b730202328.jpg')
+                ->setImageName('industrie-pharmaceutique-609a2dff6544e966810569.jpg')
                 ->setCategory($category)
                 ->setIsActive($faker->boolean());
 
