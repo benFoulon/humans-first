@@ -28,15 +28,15 @@ class OfferType extends AbstractType
             ->add('weeklyWorkTime')
             ->add('remuneration')
             ->add('further_information')
-            ->add('excerpt')
-            ->add('candidacies', EntityType::class, [
-                'class' => Candidacy::class,
-                'choice_label' => function($candidacy) {
-                    return "{$candidacy->getCandidates()}";
-                },
-                'multiple' => true,
-                'expanded' => true,
-            ]);
+            ->add('excerpt');
+            // ->add('candidacies', EntityType::class, [
+            //     'class' => Candidacy::class,
+            //     'choice_label' => function($offers) {
+            //         return "{$offers->getCandidacies()}";
+            //     },
+            //     'multiple' => true,
+            //     'expanded' => true,
+            // ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

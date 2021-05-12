@@ -37,7 +37,6 @@ class MessageCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Boite de réception')
-        ->setPageTitle('edit', fn (Message $message) => sprintf('Message de : <b>%s</b>', $message->getFirstname().' '.$message->getLastname()))
         ->setDateFormat('medium');
         ;
     }

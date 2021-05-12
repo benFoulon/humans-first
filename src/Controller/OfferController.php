@@ -53,7 +53,6 @@ class OfferController extends AbstractController
 
     /**
      * @Route("/{slug}-{id}", name="offer_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"} )
-     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function show(Offer $offer, string $slug): Response
     {

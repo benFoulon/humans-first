@@ -47,7 +47,6 @@ class CandidacyCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Liste des candidatures')
-        ->setPageTitle('edit', fn (Candidacy $candidacy) => sprintf('Modification de la candidature: <b>%s</b>', $candidacy->getId()))
         ->setDateFormat('medium');
         ;
     }

@@ -167,13 +167,10 @@ footer ul{
     font-weight: 600;
 }
 .service_recrutement, .service_expertise, .service_accompagnement{
-        margin: 3rem auto;
-        max-width: 18rem;
-    }
-.service_expertise{
-    margin-right: 1.3rem;
-    margin-left: 1rem;
+    margin: 3rem auto;
+    max-width: 18rem;
 }
+
 .service_accompagnement{
     max-width: 19rem;
 }
@@ -604,11 +601,6 @@ footer ul{
         font-size: 20px;
         width: 320px;
     }
-    .flex--footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
     
     }
     @media screen and (min-width: 780px){
@@ -616,7 +608,7 @@ footer ul{
         justify-content: center;
     }
     } 
-    @media screen and (min-width : 800px){
+    @media screen and (min-width : 890px){
         .dekstop__vue--service{
             display: flex;
             flex-direction: row;
@@ -626,6 +618,10 @@ footer ul{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+        }
+        .service_expertise{
+            margin-right: 1.3rem;
+            margin-left: 1rem;
         }
         .candidate{
             margin-bottom: 0;
@@ -658,8 +654,6 @@ footer ul{
         .container--form{
             width: 50%;
         }
-    }
-    @media screen and (min-width: 850px){
         .hf_pic{
             height: 300px;
         }
@@ -674,7 +668,16 @@ footer ul{
         .background__about{
             height: 300px;
         }
+        .flex--footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .infos__rgpd--success{
+            margin-bottom: 10rem;
+        }
     }
+
     @media screen and (min-width: 1000px){
         .contact{
             max-width: 30%;

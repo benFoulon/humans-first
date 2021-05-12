@@ -32,7 +32,6 @@ class CategoryCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Liste des catégories')
-        ->setPageTitle('edit', fn (Category $category) => sprintf('Modification de : <b>%s</b>', $category->getTitle()))
         ->setDateFormat('medium');
         ;
     }

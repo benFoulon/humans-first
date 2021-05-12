@@ -108,5 +108,13 @@ class HomeController extends AbstractController
     {
         return $this->render('pages/success_redirection/success_candidacy.html.twig');
     }
+
+    /**
+     * @Route("/candidature-spontanée-envoyé", name="spontaneous_candidacy_success")
+     */
+    public function spontaneousCandidacySend(): Response
+    {
+        return $this->render('pages/success_redirection/success_spontaneous_candidacy.html.twig');
+    }
 }
 

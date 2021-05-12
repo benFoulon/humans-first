@@ -17,6 +17,7 @@ class RegistrationController extends AbstractController
 {
     /**
      * @Route("/humans-first/register", name="app_register")
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, PrivatePageAuthnticatorAuthenticator $authenticator): Response
     {

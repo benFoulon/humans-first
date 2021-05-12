@@ -1,0 +1,4 @@
+#!/bin/bash
+npm run build
+rsync -av ./ i23f2_humansfirst@humansfirstconseil.fr:~/humansfirst --include=public/build --include=public/.htaccess --include=vendor --exclude-from=.gitignore --exclude=".*"
+ssh i23f2_humansfirst@humansfirstconseil.fr 'cd ~/humansfirst && php bin/console cache:clear'

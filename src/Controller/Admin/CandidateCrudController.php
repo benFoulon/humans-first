@@ -45,7 +45,6 @@ class CandidateCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Liste des candidats')
-        ->setPageTitle('edit', fn (Candidate $candidate) => sprintf('Candidature de : <b>%s</b>', $candidate->getFirstname().' '.$candidate->getLastname()))
         ->setDateFormat('medium');
         ;
     }

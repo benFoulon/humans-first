@@ -37,7 +37,6 @@ class SpontaneousCandidacyCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Dépôt de candidatures')
-        ->setPageTitle('edit', fn (SpontaneousCandidacy $spontaneousCandidacy) => sprintf('Candidature de : <b>%s</b>', $spontaneousCandidacy->getFirstname().' '.$spontaneousCandidacy->getLastname()))
         ->setDateFormat('medium');
         ;
     }

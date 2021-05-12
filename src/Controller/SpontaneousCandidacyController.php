@@ -29,7 +29,6 @@ class SpontaneousCandidacyController extends AbstractController
 
     /**
      * @Route("/new", name="spontaneous_candidacy_new", methods={"GET","POST"})
-     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Désolé, cette page n'existe pas")
      */
     public function new(Request $request): Response
     {
@@ -42,7 +41,7 @@ class SpontaneousCandidacyController extends AbstractController
             $entityManager->persist($spontaneousCandidacy);
             $entityManager->flush();
 
-            return $this->redirectToRoute('spontaneous_candidacy_index');
+            return $this->redirectToRoute('spontaneous_candidacy_success');
         }
 
         return $this->render('spontaneous_candidacy/new.html.twig', [

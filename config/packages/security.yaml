@@ -74,6 +74,6 @@ security:
         - { path: '^/category/[0-9]+/edit', roles: ROLE_ADMIN }
 
     #Candidature Spontanée
-        - { path: '^/spontaneous-candidacy/index', roles: ROLE_ADMIN}
-        - { path: '^/spontaneous-candidacy/[0-9]+', roles: ROLE_ADMIN}
-        - { path: '^/spontaneous-candidacy/[0-9]+/edit', roles: ROLE_ADMIN }
+        # - { path: '^/spontaneous-candidacy/index', roles: ROLE_ADMIN}
+        # - { path: '^/spontaneous-candidacy/[0-9]+', roles: ROLE_ADMIN}
+        # - { path: '^/spontaneous-candidacy/[0-9]+/edit', roles: ROLE_ADMIN }
