@@ -9,7 +9,7 @@
 
     <div class="containeur article__show">
         <div class="container">
-            <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Image de l'article {{ article.title }}">
+            <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Image de l'article {{ article.title }}" alt="Photo de l'article">
             <h3>{{article.title}}</h3>
             <p class="metadata__article">Publiée le : {{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</p>
             <p class="article__content">{{ article.content | raw }}</p>

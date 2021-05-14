@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidacy;
 use App\Entity\Offer;
 use App\Form\OfferType;
 use App\Repository\OfferRepository;
@@ -36,6 +37,7 @@ class OfferController extends AbstractController
         $offer = new Offer();
         $form = $this->createForm(OfferType::class, $offer);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();

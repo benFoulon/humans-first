@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container">
-<div class="container news__logo mt-4"><img class="icon_png" src="{{ asset('build/newspaper.svg') }}" width="70" height="70"></div>
+<div class="container news__logo mt-4"><img class="icon_png" src="{{ asset('build/newspaper.svg') }}" width="70" height="70" alt="logo"></div>
 <h2 class="mb-3"><strong>Actualités</strong></h2>
 {% for category in categories %}
     {% if category.isActive is defined and category.isActive == true %}
@@ -12,7 +12,7 @@
                 {% if article.isActive is defined and article.isActive == true %}
                     {% if article.category.id == category.id %}
                     <div class="article__card">
-                    <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="">
+                    <img class="article__image" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="Photo de l'article">
                     <p class="metadata__article"> Publié le : {{ article.publicationDate | date('d/m/Y') }}</p>
                         <h4 class="article__title">{{ article.title }}</h4>
                         <p class="article__excerpt mb-2">{{ article.excerpt | raw }}</p>

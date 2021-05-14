@@ -40,10 +40,10 @@ class OfferCrudController extends AbstractCrudController
             TextField::new('further_information', 'Informations complémentaires')->hideOnIndex(),
             BooleanField::new('isActive', 'Offre active'),
             TextEditorField::new('excerpt', 'Extrait'),
-            AssociationField::new('candidacies', 'Candidatures')->hideOnForm()
+            AssociationField::new('candidacies', 'Candidatures')
                 ->setFormTypeOptions([
                     'choice_label' => function($offers) {
-                        return "{$offers->getCandidacies()}";
+                        return "{$offers->getCandidates()}";
                     }
             ]),
         ];  

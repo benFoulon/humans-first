@@ -11,9 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=OfferRepository::class)
- * @UniqueEntity(
- *  fields = {"candidacies"}
- * )
  */
 class Offer
 {

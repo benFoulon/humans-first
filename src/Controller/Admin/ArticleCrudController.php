@@ -49,7 +49,6 @@ class ArticleCrudController extends AbstractCrudController
     {
         return $crud
         ->setPageTitle('index', 'Liste des articles')
-        ->setPageTitle('edit', fn (Article $article) => sprintf('Modification de : <b>%s</b>', $article->getTitle()))
         ->setDateFormat('medium');
         ;
     }

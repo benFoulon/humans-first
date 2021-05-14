@@ -609,6 +609,9 @@ footer ul{
     }
     } 
     @media screen and (min-width : 890px){
+        .hf_logo{
+            max-width: 300px;
+        }
         .dekstop__vue--service{
             display: flex;
             flex-direction: row;

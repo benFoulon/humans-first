@@ -41,7 +41,7 @@ class OfferRepository extends ServiceEntityRepository
     public function findAllActiveQuery()
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.isActive = true')
+            ->Where('o.isActive = true')
             ->orderBy('o.id', 'DESC')
             ->getQuery();
     }

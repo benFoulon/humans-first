@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Humans First{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="m_Mt1dMoWpC9YI5n7ti-F9ibwSWBlXhkunpb-Uv7EF4" />
+        <meta name="description" content="Vous êtes à la recherche d'un emploi ? Vous êtes une entreprise à la recherche de candidats ? Le cabinet Humans First spécialisé dans le recrutement, l'expertise en ressources humaines et l'acccompagnement, peut vous apporter votre solution personnalisée !">
+        <link rel="icon" type="image/png"  href="{{asset('icons/favicon.ico')}}">
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -15,7 +18,7 @@
     </head>
     <body>
             <div class="header">
-                <img class="hf_logo" src="{{ asset('build/hf-logo.png')}}" alt="">
+                <img class="hf_logo" src="{{ asset('build/humans_first.png')}}" alt="logo Humans First">
             </div>
             <nav class="navbar navbar-expand-lg navbar-light sticky-top" id="navBar">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +97,8 @@
             } else {
                 $('#navBar').removeClass('floatingNav');
             }
-        });        
+        });
+        </script>        
         {% endblock %}
     </body>
 </html>

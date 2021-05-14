@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class CandidateCrudController extends AbstractCrudController
@@ -25,14 +26,15 @@ class CandidateCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
+            TextField::new('firstname', 'Prénom'),
+            TextField::new('lastname', 'Nom'),
             TextField::new('mail'),
-            TextField::new('phone'),
-            TextField::new('town'),
+            TextField::new('phone', 'Téléphone'),
+            TextField::new('town', 'Ville'),
             TextField::new('cvFile')->setFormType(VichFileType::class)->hideOnIndex(),
             // ImageField::new('fileName')->setBasePath('uploads/cv_candidatures'),
             AssociationField::new('candidacies', 'Candidatures')
+                ->setFormType(EntityType::class)
                 ->setFormTypeOptions([
                     'choice_label' => function($candidacy) {
                         return "{$candidacy->getOffers()}";
